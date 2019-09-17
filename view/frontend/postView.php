@@ -37,8 +37,15 @@ while ($comment = $comments->fetch())
 ?>
     <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
     <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+    <form action="index.php?action=signalPost&amp;id=<?= $post['id'] ?>" method="post">
+    
+    <button>signaler</button>    
+    </form>
+   
+
 <?php
 }
+
 ?>
 <?php $content = ob_get_clean(); ?>
 

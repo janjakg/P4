@@ -26,6 +26,15 @@ if (isset($_GET['action'])) {
             echo 'Erreur : aucun identifiant de billet envoyé';
         }
     }
+  else if($_GET['action'] == 'signalPost') {
+      if(isset($_GET['id']) && $_GET['id'] > 0) {
+          echo 'Commentaire signalé';
+      }
+      else{
+          signalPost();
+      }
+    }
+
 }
 else {
     listPosts();

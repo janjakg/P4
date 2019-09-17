@@ -35,6 +35,15 @@ function postComment($postId, $author, $comment)
     return $affectedLines;
 }
 
+function flagComment($postId, $author, $comment)
+{
+  $db = dbConnect();
+  $comments = $db->prepare('INSERT TO reportedPosts(id,reportedPost)');
+  $flagedLines = $reportedPosts->execute(array($postId, $author, $comment));
+
+  return $flagedLines;
+}
+
 function dbConnect()
 {
     try

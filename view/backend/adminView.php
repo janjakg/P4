@@ -6,12 +6,12 @@
 
 
 <?php
-while ($data = $posts->fetch())
+while ($report = $reportedPosts->fetch())
 {
 ?>
     <div class="news">
         <h3>
-        <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>"><?= htmlspecialchars($data['title']) ?></a></em>
+        <em><a href="index.php?action=post&amp;id=<?= $report['id'] ?>"><?= htmlspecialchars($report['reported_post']) ?></a></em>
             
         </h3>
         

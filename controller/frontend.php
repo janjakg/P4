@@ -28,3 +28,15 @@ function addComment($postId, $author, $comment)
         header('Location: index.php?action=post&id=' . $postId);
     }
 }
+
+function signalPost($postId, $author, $comment)
+{
+  $flagedLines = flagComment($postId, $author, $comment);
+
+  if($flagedLines === false){
+      die('Post signalé!');
+  }
+  else {
+    header('Location: index.php?action=post&id=' . $postId);
+  }
+}
