@@ -2,7 +2,9 @@
 
 <?php ob_start(); ?>
 <h1>Billet simple pour l'Alaska</h1>
-<p>Derniers posts :</p>
+
+
+<a href="view/backend/adminView.php">connexion</a>
 
 
 <?php

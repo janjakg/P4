@@ -1,7 +1,8 @@
 <?php
 require('controller/frontend.php');
 
-if (isset($_GET['action'])) {
+try {
+  if (isset($_GET['action'])) {
     if ($_GET['action'] == 'listPosts') {
         listPosts();
     }
@@ -11,6 +12,7 @@ if (isset($_GET['action'])) {
         }
         else {
             echo 'Erreur : aucun identifiant de billet envoyé';
+            
         }
     }
     elseif ($_GET['action'] == 'addComment') {
@@ -28,14 +30,16 @@ if (isset($_GET['action'])) {
     }
   else if($_GET['action'] == 'signalPost') {
       if(isset($_GET['id']) && $_GET['id'] > 0) {
-          echo 'Commentaire signalé';
+         signalPost($_GET['id']);
+         echo 'Commentaire signalé! En attente de traitement';
       }
-      else{
-          signalPost();
-      }
+     
     }
 
 }
 else {
     listPosts();
+}
+} catch (Exception $e) {
+  die('Erreur : '.$e->getMessage());
 }
