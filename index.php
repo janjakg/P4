@@ -29,13 +29,12 @@ try {
         }
     }
   else if($_GET['action'] == 'signalPost') {
-      if(isset($_GET['id']) && $_GET['id'] > 0) {
-         signalPost($_GET['id']);
-         echo 'Commentaire signalé! En attente de traitement';
-      }
-     
+      if(isset($_GET['id']) && $_GET['id']>0) {
+     echo 'Commentaire signalé! En attente de traitement';
+          signalPost($_GET['id']);
+        }               
+                 
     }
-
 }
 else {
     listPosts();

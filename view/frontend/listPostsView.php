@@ -4,7 +4,7 @@
 <h1>Billet simple pour l'Alaska</h1>
 
 
-<a href="view/backend/adminView.php">connexion</a>
+<a href="view/frontend/adminLogin.php">connexion</a>
 
 
 <?php
