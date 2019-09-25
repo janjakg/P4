@@ -1,26 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>adminLogin</title>
-</head>
+<?php $title = "Connexion"; ?>
 
-<body>
+
+<?php ob_start(); ?>
+<p><a href="index.php">Accueil</a></p>
+
   <p>Veuillez indiquer votre mot de passe pour acceder à la page d'administration</p>
     <form action="adminView.php" method="post">
       <p>
-        <label for="email">Adresse email</label><br>
+      <fieldset>
+      <legend>Connexion</legend>
+        <label for="email">Adresse email :</label><br>
         <input type="email" name="courriel"><br>
-        <label for="password">Mot de passe</label><br>
-        <input type="password" name="mot_de_passe"/><br>
+        <label for="password">Mot de passe :</label><br>
+        <input type="password" name="mot_de_passe"/><br><br>
         <input type="submit" value="Valider">
+      </fieldset>
       </p>
     </form>
-  
-</body>
-</html>
+
+<?php $content = ob_get_clean(); ?>
+
+<?php require('template.php'); ?>
+
+   
+
 
 
 

@@ -19,11 +19,21 @@ class PostManager
     return $post;
   }
 
+  public function createPost($title, $content)
+  {
+    $db = $this->dbconnect();
+    $req = $db->prepare('INSERT TO posts(id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr) VALUES (?, ? , ?, NOW())');
+    $req->execute(array($title, $content));
+    $postAdded = $post = $req->fetch();
+
+    return $postAdded;
+  }
+
 
 
   private function dbConnect()
   {
-    $db = new PDO('mysql:host=localhost;dbname=blogp4;charset=utf8', 'root', '');
+    $db = new PDO('mysql:host=localhost;dbname=blogp4;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     return $db;
   }
 
