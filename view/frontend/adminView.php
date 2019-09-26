@@ -11,7 +11,11 @@ if(isset($_POST['mot_de_passe']) AND $_POST['mot_de_passe'] == "alien")
 
   <a href="adminLogin.php">déconnexion</a>
 
-<h2>Création d'un nouveau chapitre : </h2>
+<h2>Commentaires signalés :</h2>
+
+
+
+<h3>Création d'un nouveau chapitre : </h3>
 
   <form action="index.php?action=postAdded&amp;id=<?= $postAdded['id'] ?>" method="post">
 
@@ -24,7 +28,7 @@ if(isset($_POST['mot_de_passe']) AND $_POST['mot_de_passe'] == "alien")
     <button type="submit" name="valid">Valid</button>
      
   </form>
-
+  
   <?php  
 }
 else

@@ -19,7 +19,7 @@ function post()
     $post = $postManager->getPost($_GET['id']);
     $comments = $commentManager->getComments($_GET['id']);
 
-    require('view/frontend/postView.php');
+    require('view/frontend/postView.php');   
 }
 
 function addComment($postId, $author, $comment)
@@ -28,13 +28,13 @@ function addComment($postId, $author, $comment)
     $affectedLines = $commentManager->postComment($postId, $author, $comment);
        
     if ($affectedLines === false) {
-        die('Impossible d\'ajouter le commentaire !');
+       throw new Exception('Impossible d\'ajouter le commentaire !');
         
     }
     else {
         header('Location: index.php?action=post&id=' . $postId);
     }
-  }
+}
 
 function addPost($title, $content)
 {
@@ -44,7 +44,7 @@ function addPost($title, $content)
     require('view/frontend/adminView.php');
     
     if($postAdded === false) {
-      die('impossible d\ajouter le post!');
+      throw new Exception('impossible d\ajouter le post!');
     }
     else {
       header('Location: index.php?action=title&id=' . $postId);
@@ -57,7 +57,7 @@ function signalPost($commentId)
   $updateComment = $commentManager->flagComments($commentId);
 
   if($updateComment === false) {
-      die('Post signalé! En attente de traitement');
+    throw new Exception('Post signalé! En attente de traitement');
   }
   else {
     header('Location: index.php?action=post&id=' . $postId);

@@ -1,5 +1,7 @@
 <?php
-class PostManager 
+require_once('model/Manager.php');
+
+class PostManager extends Manager
 {
   public function getPosts()
   {
@@ -28,15 +30,4 @@ class PostManager
 
     return $postAdded;
   }
-
-
-
-  private function dbConnect()
-  {
-    $db = new PDO('mysql:host=localhost;dbname=blogp4;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-    return $db;
-  }
-
-  
-
 }
