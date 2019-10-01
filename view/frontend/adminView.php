@@ -11,20 +11,68 @@ if(isset($_POST['mot_de_passe']) AND $_POST['mot_de_passe'] == "alien")
 
   <a href="adminLogin.php">déconnexion</a>
 
-<h2>Commentaires signalés :</h2>
+  <div class="container"><br>
+    <div class="row"><br>
+      <h2>Liste des commentaires signalés :</h2>  
+    </div>
+
+    <div class="row"><br>
+        <div class="table-responsive"><br>
+          <table class="table table-hover table-bordered"><br>
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">post_Id</th>
+                <th scope="col">authort</th>
+                <th scope="col">comment</th>
+                <th scope="col">comment_date</th>
+                <th scope="col">signalled</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>                
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>              
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>                
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </div>
+
+
+  <div class="container"><br>
+    <div class="row"><br>
+      <h2>Liste des Posts :</h2>  
+    </div>
+  </div>
 
 
 
-    <p><strong><?= htmlspecialchars($flaggedCom['author']) ?></strong> le <?= $flaggedCom['comment_date_fr'] ?></p>
-    <p><?= nl2br(htmlspecialchars($flaggedCom['comment'])) ?></p>
-    <p><?= nl2br(htmlspecialchars($flaggedCom['signalled'])) ?></p>    
-           
+                
+<h2>Création d'un nouveau chapitre : </h2>
 
-
-
-<h3>Création d'un nouveau chapitre : </h3>
-
-  <form action="" method="post">
+  <form action="listPostView" method="post">
 
     <label for="name">Chapitre :</label><br>
     <input type="text" name="name" value=""> <br>
@@ -35,7 +83,6 @@ if(isset($_POST['mot_de_passe']) AND $_POST['mot_de_passe'] == "alien")
     <button type="submit" name="valid">Valid</button>
      
   </form>
-
   
   <?php  
 }
@@ -43,7 +90,6 @@ else
 {
   echo 'Mot de passe incorrect';
 }
-
 
 ?>
 <?php $content = ob_get_clean(); ?>

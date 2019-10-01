@@ -8,12 +8,20 @@
     <form action="adminView.php" method="post">
       <p>
       <fieldset>
-      <legend>Connexion</legend>
-        <label for="email">Adresse email :</label><br>
-        <input type="email" name="courriel"><br>
-        <label for="password">Mot de passe :</label><br>
-        <input type="password" name="mot_de_passe"/><br><br>
-        <input type="submit" value="Valider">
+      <legend >Connexion</legend>
+      <div class="form-group row">
+        <label for="email" class="col-sm-2 col-form-label">Adresse email :</label><br>
+        <div class="col-sm-10">
+        <input type="email" class="form-control" name="courriel"><br>
+        </div>
+        </div>
+        <div class="form-group row">
+        <label for="password" class="col-sm-2 col-form-label">Mot de passe :</label><br>
+        <div class="col-sm-10">
+        <input type="password" class="form-control" name="mot_de_passe"/><br><br>
+        </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </fieldset>
       </p>
     </form>
@@ -23,7 +31,6 @@
 <?php require('template.php'); ?>
 
    
-
 
 
 

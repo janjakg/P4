@@ -58,7 +58,7 @@ try {
 // récupération de commentaires signalés
     else if(isset( $_GET['action']) =='getSignalComment') {
       if(isset($_POST['mot_de_passe']) AND $_POST['mot_de_passe'] == "alien"){
-        getSignalComment($commentId);
+        getSignalComment($signalled);
       } 
          else{
            echo 'Mot de passe incorrect';          

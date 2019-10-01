@@ -19,7 +19,7 @@ function post()
     $post = $postManager->getPost($_GET['id']);
     $comments = $commentManager->getComments($_GET['id']);
 
-    require('view/frontend/postView.php');   
+    require('view/frontend/postView.php');      
 }
 
 function addComment($postId, $author, $comment)
@@ -64,16 +64,16 @@ function signalComment($commentId)
   }
 }
 
-function getSignalComment($commentId) 
+function getSignalComment($signalled) 
 {
   $commentManager = new CommentManager();
-  $flaggedCom = $commentManager->getFlagComment($commentId);
+  $flaggedCom = $commentManager->getFlagComment($signalled);
 
   if($flaggedCom === false) {
     throw new Exception('post recupéré');
   }
   else{
-    header('location:adminView.php?action=post&id=' . $commentId);
+    header('location:adminView.php?action=post&id=' . $signalled);
   }
 
   require('view/frontend/adminView.php');

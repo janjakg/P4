@@ -1,7 +1,9 @@
 <?php $title = "Billet simple pour l'Alaska"; ?>
 
 <?php ob_start(); ?>
+<div class="headline">
 <h1>Billet simple pour l'Alaska</h1>
+</div>
 
 
 <a href="view/frontend/adminLogin.php">connexion</a>

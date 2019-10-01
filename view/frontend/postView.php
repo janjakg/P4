@@ -1,41 +1,47 @@
 <?php $title = htmlspecialchars($post['title']); ?>
 
 <?php ob_start(); ?>
+<div class="headline">
 <h1>Billet simple pour l'Alaska</h1>
+</div>
 <p><a href="index.php">Retour à la liste des posts</a></p>
 
 <div class="news">
-    <h3>
-        <?= htmlspecialchars($post['title']) ?>
-        <em>le <?= $post['creation_date_fr'] ?></em>
-    </h3>
-    
-    <p>
+    <h3><?= htmlspecialchars($post['title']) ?></h3>         
+      <p>
         <?= nl2br(htmlspecialchars($post['content'])) ?>
-    </p>
+      </p>
+      <div id="date">
+      <em>le <?= $post['creation_date_fr'] ?></em> 
+      </div>
 </div>
 
 <h2>Commentaires</h2>
 
 <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
-    <div>
-        <label for="author">Auteur</label><br />
-        <input type="text" id="author" name="author" />
+    <div class="form-group">
+        <label for="author">Auteur</label>
+        <input type="text" class="form-control" id="author" name="author" />
+    </div>
+    <div class="form-group">
+        <label for="comment">Commentaire</label>
+        <textarea class="form-control" id="comment" name="comment"></textarea>
     </div>
     <div>
-        <label for="comment">Commentaire</label><br />
-        <textarea id="comment" name="comment"></textarea>
-    </div>
-    <div>
-        <input type="submit" />
+    <button type="submit" class="btn btn-primary">Envoi</button>
     </div>
 </form>
 
+
+
+<div class="comments">
 <?php while ($comment = $comments->fetch()): ?>
     <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
-    <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>   
-    <a href="index.php?action=signalPost&amp;id=<?= $comment['id'] ?>">Signaler</a>        
+    <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>  
+    <a href="index.php?action=signalPost&amp;id=<?= $comment['id'] ?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Signaler</a>
+            
 <?php endwhile; ?>
+</div>
 
 <?php $content = ob_get_clean(); ?>
 
