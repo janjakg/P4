@@ -15,9 +15,16 @@ if(isset($_POST['mot_de_passe']) AND $_POST['mot_de_passe'] == "alien")
 
 
 
+    <p><strong><?= htmlspecialchars($flaggedCom['author']) ?></strong> le <?= $flaggedCom['comment_date_fr'] ?></p>
+    <p><?= nl2br(htmlspecialchars($flaggedCom['comment'])) ?></p>
+    <p><?= nl2br(htmlspecialchars($flaggedCom['signalled'])) ?></p>    
+           
+
+
+
 <h3>Création d'un nouveau chapitre : </h3>
 
-  <form action="index.php?action=postAdded&amp;id=<?= $postAdded['id'] ?>" method="post">
+  <form action="" method="post">
 
     <label for="name">Chapitre :</label><br>
     <input type="text" name="name" value=""> <br>
@@ -28,6 +35,7 @@ if(isset($_POST['mot_de_passe']) AND $_POST['mot_de_passe'] == "alien")
     <button type="submit" name="valid">Valid</button>
      
   </form>
+
   
   <?php  
 }
@@ -35,6 +43,8 @@ else
 {
   echo 'Mot de passe incorrect';
 }
+
+
 ?>
 <?php $content = ob_get_clean(); ?>
 

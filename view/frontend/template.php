@@ -10,6 +10,7 @@
 
   <body>
     <?= $content ?>
+    <script src="public/js/signal.js"></script>
   </body>
 </html>
 

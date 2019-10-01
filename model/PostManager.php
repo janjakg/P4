@@ -24,9 +24,9 @@ class PostManager extends Manager
   public function createPost($title, $content)
   {
     $db = $this->dbconnect();
-    $req = $db->prepare('INSERT TO posts(id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr) VALUES (?, ? , ?, NOW())');
+    $req = $db->prepare('INSERT INTO posts(id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr) VALUES (?, ? , ?, NOW())');
     $req->execute(array($title, $content));
-    $postAdded = $post = $req->fetch();
+   
 
     return $postAdded;
   }

@@ -7,10 +7,9 @@
 <a href="view/frontend/adminLogin.php">connexion</a>
 
 
-<?php
-while ($data = $posts->fetch())
-{
-?>
+<?php while ($data = $posts->fetch()):?>
+
+
     <div class="news">
         <h3>
         <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>"><?= htmlspecialchars($data['title']) ?></a></em>
@@ -23,10 +22,9 @@ while ($data = $posts->fetch())
             
         </p>
     </div>
-<?php
-}
-$posts->closeCursor();
-?>
+
+<?php endwhile;?>
+
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>

@@ -51,7 +51,7 @@ function addPost($title, $content)
     }
 }
 
-function signalPost($commentId)
+function signalComment($commentId)
 {
   $commentManager = new CommentManager();
   $updateComment = $commentManager->flagComments($commentId);
@@ -60,6 +60,22 @@ function signalPost($commentId)
     throw new Exception('Post signalé! En attente de traitement');
   }
   else {
-    header('Location: index.php?action=post&id=' . $postId);
+    header('Location: index.php?action=post&id=' . $commentid);    
   }
+}
+
+function getSignalComment($commentId) 
+{
+  $commentManager = new CommentManager();
+  $flaggedCom = $commentManager->getFlagComment($commentId);
+
+  if($flaggedCom === false) {
+    throw new Exception('post recupéré');
+  }
+  else{
+    header('location:adminView.php?action=post&id=' . $commentId);
+  }
+
+  require('view/frontend/adminView.php');
+
 }

@@ -2,11 +2,12 @@
 require('controller/frontend.php');
 
 try {
+  //test du paramètre action pour savoir quel controlleur appeler. Ici listposts
   if (isset($_GET['action'])) {
     if ($_GET['action'] == 'listPosts') {
         listPosts();
     }
-
+//appel du controlleur post, recupération des posts ajoutés
     elseif ($_GET['action'] == 'post') {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             post();
@@ -16,6 +17,7 @@ try {
         }
 
     }
+    // ajout de commentaire
     elseif ($_GET['action'] == 'addComment') {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             if (!empty($_POST['author']) && !empty($_POST['comment'])) {
@@ -29,28 +31,47 @@ try {
             echo 'Erreur : aucun identifiant de billet envoyé';
           }
     }
-    else if($_GET['action'] == 'signalPost') {
+    //signalement des commentaires 
+    else if(isset($_GET['action'])  == 'signalComment') {
       if(isset($_GET['id']) && $_GET['id'] >0) {
-        signalPost($_GET['id']);
-        echo 'Commentaire signalé! En attente de traitement';           
+        signalComment($_GET['id']);
+        echo 'Commentaire signalé! En attente de traitement'; 
+      }
+     
         }     
         else {
           echo 'le post n\'a pas été signalé!';
         }          
                  
     }
-    else if($_GET['action'] == 'addPost') {
+    //appel du controller addPost, ajout de posts
+    else if(isset( $_POST['action']) == 'addPost') {
       if(isset($_GET['id']) && $_GET['id']>0) {
-        addPost($_GET['id']);       
-      }
+        if (!empty($_GET['title']) && !empty($_GET['content']));{
+          addPost($title, $content);  
+        }
+      }           
       else{
         echo 'post non envoyé';
-      }
+      }   
     }
-}
-else {
+// récupération de commentaires signalés
+    else if(isset( $_GET['action']) =='getSignalComment') {
+      if(isset($_POST['mot_de_passe']) AND $_POST['mot_de_passe'] == "alien"){
+        getSignalComment($commentId);
+      } 
+         else{
+           echo 'Mot de passe incorrect';          
+         } 
+       
+     }
+    
+
+    else {
+  //Par défaut on charge la liste des derniers billets
     listPosts();
-}
-} catch (Exception $e) {
+    }
+  } catch (Exception $e) {
   die('Erreur : '.$e->getMessage());
-}
+  }
+
