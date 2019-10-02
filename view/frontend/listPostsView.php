@@ -13,6 +13,7 @@
 
 
     <div class="news">
+    <div class="shadow p-3 mb-5 bg-white rounded">
         <h3>
         <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>"><?= htmlspecialchars($data['title']) ?></a></em>
             
@@ -23,6 +24,7 @@
             <br />
             
         </p>
+        </div>
     </div>
 
 <?php endwhile;?>

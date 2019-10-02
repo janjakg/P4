@@ -2,14 +2,6 @@
     text-align: center;
 }
 
-.news {
-    background-color: rgb(220, 226, 231);
-    border: 1px, solid, rgb(75, 73, 73);
-    border-radius: 5px;
-    padding: 5px;
-    margin: 5px;
-}
-
 #date {
     text-align: right;
 }

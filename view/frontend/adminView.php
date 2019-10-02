@@ -5,7 +5,6 @@
 
 <?php
 if(isset($_POST['mot_de_passe']) AND $_POST['mot_de_passe'] == "alien") 
-
 {
   ?>
 
@@ -21,12 +20,13 @@ if(isset($_POST['mot_de_passe']) AND $_POST['mot_de_passe'] == "alien")
           <table class="table table-hover table-bordered"><br>
             <thead>
               <tr>
-                <th scope="col">id</th>
-                <th scope="col">post_Id</th>
-                <th scope="col">authort</th>
-                <th scope="col">comment</th>
-                <th scope="col">comment_date</th>
-                <th scope="col">signalled</th>
+                <th scope="col">Id</th>
+                <th scope="col">Post_Id</th>
+                <th scope="col">Authort</th>
+                <th scope="col">Comment</th>
+                <th scope="col">Comment_date</th>
+                <th scope="col">Signalled</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -36,7 +36,8 @@ if(isset($_POST['mot_de_passe']) AND $_POST['mot_de_passe'] == "alien")
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>                
+                <td></td> 
+                <td></td>               
               </tr>
               <tr>
                 <th scope="row">2</th>
@@ -44,7 +45,8 @@ if(isset($_POST['mot_de_passe']) AND $_POST['mot_de_passe'] == "alien")
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>              
+                <td></td>
+                <td></td>             
               </tr>
               <tr>
                 <th scope="row">3</th>
@@ -52,7 +54,8 @@ if(isset($_POST['mot_de_passe']) AND $_POST['mot_de_passe'] == "alien")
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>                
+                <td></td> 
+                <td></td>               
               </tr>
             </tbody>
           </table>
@@ -65,42 +68,65 @@ if(isset($_POST['mot_de_passe']) AND $_POST['mot_de_passe'] == "alien")
     <div class="row"><br>
       <h2>Liste des Posts :</h2>  
     </div>
-  </div>
+    <div class="row">
+        <div class="table-responsive"><br>
+          <table class="table table-hover table-bordered"><br>
+            <thead>
+              <tr>                
+                <th scope="col">Id</th>
+                <th scope="col">Title</th>                
+                <th scope="col">Date</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td></td>
+                <td></td>
+                <td></td>                              
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td></td>
+                <td></td> 
+                <td></td>                              
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td></td>
+                <td></td> 
+                <td></td>                             
+              </tr>
+            </tbody>
+          </table>
 
-
-
-                
-<h2>Création d'un nouveau chapitre : </h2>
-
-  <form action="listPostView" method="post">
-
-    <label for="name">Chapitre :</label><br>
-    <input type="text" name="name" value=""> <br>
-
-    <label for="text">Texte</label><br>
-    <textarea name="content" id="content" cols="30" rows="10"></textarea><br><br>
-
-    <button type="submit" name="valid">Valid</button>
-     
-  </form>
-  
-  <?php  
+    </div>
+  </div><br>
+                         
+    <h2>Création d'un nouveau chapitre : </h2>  
+      
+    <form action="listPostView" method="post">
+        <div class="form-group">
+          <label for="name">Chapitre :</label><br>
+          <input type="text" class="form-control" name="name" value=""> <br>
+        </div>  
+        <div class="form-group">
+          <label for="text">Texte :</label><br>
+          <textarea class="form-control" name="content" id="content" cols="30" rows="10"></textarea><br><br>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary" name="valid">Envoi</button>
+        </div>
+    </form>
+      
+<?php  
 }
 else
 {
   echo 'Mot de passe incorrect';
 }
-
 ?>
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>
-
-
-
-
-
-
-
-
-    

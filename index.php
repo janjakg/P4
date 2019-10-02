@@ -1,6 +1,5 @@
 <?php
 require('controller/frontend.php');
-
 try {
   //test du paramètre action pour savoir quel controlleur appeler. Ici listposts
   if (isset($_GET['action'])) {
@@ -15,7 +14,6 @@ try {
         else {
             echo 'Erreur : aucun identifiant de billet envoyé';            
         }
-
     }
     // ajout de commentaire
     elseif ($_GET['action'] == 'addComment') {
@@ -66,7 +64,6 @@ try {
        
      }
     
-
     else {
   //Par défaut on charge la liste des derniers billets
     listPosts();
@@ -74,4 +71,3 @@ try {
   } catch (Exception $e) {
   die('Erreur : '.$e->getMessage());
   }
-
