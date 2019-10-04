@@ -4,7 +4,7 @@
 <div class="headline">
 <h1>Billet simple pour l'Alaska</h1>
 </div>
-<p><a href="index.php">Retour à la liste des posts</a></p>
+
 
 <div class="news">
   <div class="shadow-lg p-3 mb-5 bg-white rounded">
@@ -42,7 +42,7 @@
     <?php while ($comment = $comments->fetch()): ?>
         <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
         <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>  
-        <a href="index.php?action=signalPost&amp;id=<?= $comment['id'] ?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Signaler</a>
+        <a href="index.php?action=signalComment&amp;id=<?= $comment['id'] ?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Signaler</a>
                 
     <?php endwhile; ?>
   </div>
