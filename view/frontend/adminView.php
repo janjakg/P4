@@ -1,12 +1,9 @@
 <?php $title = "Admin"; ?>
 
 <?php ob_start(); ?>
-<h1>Admin</h1>
+<h1>Administration</h1>
 
-<?php
-if(isset($_POST['mot_de_passe']) AND $_POST['mot_de_passe'] == "alien") 
-{
-  ?>
+
 
   <a href="adminLogin.php">déconnexion</a>
 
@@ -32,7 +29,7 @@ if(isset($_POST['mot_de_passe']) AND $_POST['mot_de_passe'] == "alien")
             <tbody>
               <tr>
                 <th scope="row">1</th>
-                <td></td>
+                <td><?= nl2br(htmlspecialchars($flaggedCom['comment'])) ?></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -120,13 +117,9 @@ if(isset($_POST['mot_de_passe']) AND $_POST['mot_de_passe'] == "alien")
         </div>
     </form>
       
-<?php  
-}
-else
-{
-  echo 'Mot de passe incorrect';
-}
-?>
+
+
+
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>
