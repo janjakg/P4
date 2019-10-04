@@ -50,7 +50,7 @@ function signalComment($commentId)
     throw new Exception('Post signalé! En attente de traitement');
   }
   else {
-    header('Location: index.php?action=post&id=' . $commentid);    
+    header('Location: index.php?action=signalComment&id=' . $commentid);    
   }
 }
 function getSignalComment($signalled) 
@@ -64,4 +64,10 @@ function getSignalComment($signalled)
     header('location:adminView.php?action=post&id=' . $signalled);
   }
   require('view/frontend/adminView.php');
+}
+function adminConnect()
+{
+  $manager = new Manager();
+  $code = $manager->getAdmConnect();
+  require('view/frontend/adminLogin.php');
 }
