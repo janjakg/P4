@@ -6,38 +6,34 @@
 </div>
 
 
-<div class="news">
-  <div class="shadow-lg p-3 mb-5 bg-white rounded">
-    <h3><?= htmlspecialchars($post['title']) ?></h3>         
-      <p>
-        <?= nl2br(htmlspecialchars($post['content'])) ?>
-      </p>
-      <div id="date">
-      <em>le <?= $post['creation_date_fr'] ?></em> 
-      </div>
-  </div>
-</div>
-
-<div class="shadow-lg p-3 mb-5 bg-white rounded">
-<h2>Commentaires</h2>
-
-  <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
-    <div class="form-group">
-        <label for="author">Auteur</label>
-        <input type="text" class="form-control" id="author" name="author" />
+<section class="news">
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <h2><?= htmlspecialchars($post['title']) ?></h2>
+        <p>
+            <?= nl2br(htmlspecialchars($post['content'])) ?>
+        </p>
+        <div id="date">
+            <em>le <?= $post['creation_date_fr'] ?></em>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="comment">Commentaire</label>
-        <textarea class="form-control" id="comment" name="comment"></textarea>
-    </div>
-    <div>
-    <button type="submit" class="btn btn-primary">Envoi</button>
-    </div>
-  </form>
-</div>
-
+    </section>
+<section class="shadow-lg p-3 mb-5 bg-white rounded">
+    <h2>Commentaires</h2>
+    <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
+        <div class="form-group">
+            <label for="author">Auteur</label>
+            <input type="text" class="form-control" id="author" name="author"/>
+        </div>
+        <div class="form-group">
+            <label for="comment">Commentaire</label>
+            <textarea class="form-control" id="comment" name="comment"></textarea>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Envoi</button>
+        </div>
+    </form>
+</section>
 <?php if ($comments): ?>
-
 <div class="shadow-lg p-3 mb-5 bg-white rounded">
 <div class="comments">
         <?php while ($comment = $comments->fetch()): ?>
@@ -50,8 +46,10 @@
     </div>
 </div>
 <?php else: ?>
-  <p>Pas de commentaire</p>
+<p>Pas de commentaire</p>
 <?php endif; ?>
+
+
 
 <?php $content = ob_get_clean(); ?>
 
