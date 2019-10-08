@@ -24,11 +24,11 @@ class CommentManager extends Manager
   
     return $updateComment;
   }  
-  public function getFlagComment($signalled)
+  public function displayFlagComment($signalled)
   {
     $db = $this->dbConnect();
     $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, signalled FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
-    $flaggedCom = $comments->execute(array($signalled));
+    $flaggedComments = $comments->execute(array($signalled));
     return $flaggedCom;
   }
 }

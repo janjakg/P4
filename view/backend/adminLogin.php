@@ -5,7 +5,7 @@
 <p><a href="index.php">Accueil</a></p>
 
   <p>Veuillez indiquer votre mot de passe pour acceder à la page d'administration</p>
-    <form action="adminView.php" method="post">
+    <form action="index.php?action=getSignalComment&signalled" method="post">
       <p>
       <fieldset>
       <legend >Connexion</legend>

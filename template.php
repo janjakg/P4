@@ -25,7 +25,7 @@
     </ul>
     <ul class="navbar-nav ml-auto">      
       <li class="nav-item">
-        <a class="nav-link" href="index.php?action=listPosts">Connexion</a>
+        <a class="nav-link" href="index.php?action=getSignalComment&signalled=1" method = "get">Admin</a>
       </li>           
     </ul>    
   </div>

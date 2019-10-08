@@ -6,7 +6,7 @@ function addPost($title, $content)
 {
     $postManager = new PostManager();
     $postAdded = $postManager->createPost($title, $content);
-    require('view/frontend/adminView.php');
+    require('view/backend/adminView.php');
     if ($postAdded === false) {
         throw new Exception('impossible d\ajouter le post!');
     } else {
@@ -17,12 +17,13 @@ function addPost($title, $content)
 function getSignalComment($signalled)
 {
     $commentManager = new CommentManager();
-    $flaggedCom = $commentManager->getFlagComment($signalled);
-    if ($flaggedCom === false) {
+    $flaggedComments = $commentManager->displayFlagComment($signalled);
+
+    if ($flaggedComments === false) {
         throw new Exception('post recupéré');
     } else {
-        header('location:adminView.php?action=post&id=' . $signalled);
+        header('location:adminView.php?action=signalledComment&id=' . $signalled);
     }
-    require('view/frontend/adminView.php');
+    require('view/backend/adminView.php');
 }
 

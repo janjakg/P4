@@ -36,17 +36,22 @@
   </form>
 </div>
 
+<?php if ($comments): ?>
 
 <div class="shadow-lg p-3 mb-5 bg-white rounded">
-  <div class="comments">
-    <?php while ($comment = $comments->fetch()): ?>
-        <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
-        <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>  
-        <a href="index.php?action=signalComment&amp;id=<?= $comment['id'] ?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Signaler</a>
-                
-    <?php endwhile; ?>
-  </div>
+<div class="comments">
+        <?php while ($comment = $comments->fetch()): ?>
+            <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
+            <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+            <?php if (!$comment['signalled'] = 0): ?>
+                <a href="index.php?action=signalledComment&amp;idComment=<?= $comment['id'] ?>&amp;idPost=<?= $_GET['id'] ?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Signaler</a>
+            <?php endif; ?>
+        <?php endwhile; ?>
+    </div>
 </div>
+<?php else: ?>
+  <p>Pas de commentaire</p>
+<?php endif; ?>
 
 <?php $content = ob_get_clean(); ?>
 
