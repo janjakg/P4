@@ -8,6 +8,7 @@ try
             case 'listPosts':
                 listPosts();
                 break;
+
             case 'post':
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     post();
@@ -15,6 +16,7 @@ try
                     echo 'Erreur : aucun identifiant de billet envoyé';
                 }
                 break;
+
             case 'addComment':
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     if (!empty($_POST['author']) && !empty($_POST['comment'])) {
@@ -26,19 +28,29 @@ try
                     echo 'Erreur : aucun identifiant de billet envoyé';
                 }
                 break;
+
             case 'signalledComment':
                 if (isset($_GET['idComment']) && $_GET['idComment'] > 0) {
-                    signalledComment($_GET['idComment']);
+                    signalledComment($_GET['idComment']);                    
                 } else {
                     throw new Exception('Aucun identifiant de commentaire envoyé');
                 }
                 break;
+
             case 'getSignalComment':
-                if(isset($_GET['id']) && $_GET['id'] == 1) {
+                if(isset($_GET['idComment']) && $_GET['idComment'] > 0) {
                   displayFlagcomment($_GET['signalled']);
                 } else {
                     throw new Exception('commentaire valide');
-                }                
+                }  
+                break;
+                
+            case 'listComments' :
+                if(isset($_GET['commentId']) && $_GET['commentId'] > 0) {
+                  listComments($_GET['commentId']);
+                }  else {
+                  throw new Exception(' aucun identifiant de liste envoyé');                
+                }          
         }
     } else {
         listPosts();
@@ -48,4 +60,5 @@ try
   {
       die('Erreur : ' . $e->getMessage());
   }  
+
   
