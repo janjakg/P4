@@ -15,7 +15,7 @@
     <div class="row"><br>
         <div class="table-responsive"><br>
           <table class="table table-hover table-bordered"><br>
-          <?php while ($list = $comments->fetch()):?>
+         
             <thead>
               <tr>
                 <th scope="col">Id</th>
@@ -30,7 +30,7 @@
             <tbody>
               <tr>
                 <th scope="row">1</th>
-                <td><?= nl2br(htmlspecialchars($flaggedCom['comment'])) ?></td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -56,8 +56,9 @@
                 <td></td>               
               </tr>
             </tbody>
+            
           </table>
-          <?php endwhile;?>
+
         </div>
     </div>
   </div>
@@ -117,10 +118,7 @@
         <div>
           <button type="submit" class="btn btn-primary" name="valid">Envoi</button>
         </div>
-    </form>
-      
-
-
+    </form>   
 
 <?php $content = ob_get_clean(); ?>
 

@@ -19,26 +19,26 @@ function getSignalComment($signalled)
 {
     $commentManager = new CommentManager();
     $flaggedComments = $commentManager->displayFlagComment($signalled);
-    require('view/backend/adminView.php');
-    
+     
     if ($flaggedComments === false) {
         throw new Exception('post recupéré');
     } else {
-        header('location:index.php?action=getSignalComment&id=' . $signalled);
+      require('view/backend/adminView.php');
     }  
 }
 
 function listComments()
 {
     $commentManager = new CommentManager();
-    $listComments = $commentManager->getListComments($commentId);
+    $listComment = $commentManager->getListComments($commentId);
 
-    if($listComments === false) {
+    if($listComment === false) {
       throw new Exception('Liste commentaire non à jour');
     }
     else {
-      require('view/backend/adminView.php');   
+      require('view/backend/listComments.php');  
     }
 }
+
 
 

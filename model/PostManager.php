@@ -27,7 +27,6 @@ class PostManager extends Manager
     $req = $db->prepare('INSERT INTO posts(id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr) VALUES (?, ? , ?, NOW())');
     $req->execute(array($title, $content));
    
-
     return $postAdded;
   }
 }

@@ -35,18 +35,18 @@ class CommentManager extends Manager
   {
       $db = $this->dbConnect();
       $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, signalled FROM comments WHERE signalled = 1');
-      $signalledComment = $comments->execute();
+      $displayFlagComment = $comments->execute();
 
-      return $signalledComment;
+      return $displayFlagComment;
   }
 
   public function getListComments($commentId)
   {
       $db = $this-> dbConnect();
       $comments = $db-> prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, signalled FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
-      $listComments = $comments -> execute(array($commentId));
+      $listComment = $comments -> execute(array($commentId));
 
-      return $listComments;
+      return $listComment;
   }
 
  }
