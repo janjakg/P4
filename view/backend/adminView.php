@@ -15,6 +15,7 @@
     <div class="row"><br>
         <div class="table-responsive"><br>
           <table class="table table-hover table-bordered"><br>
+          <?php while ($list = $comments->fetch()):?>
             <thead>
               <tr>
                 <th scope="col">Id</th>
@@ -56,6 +57,7 @@
               </tr>
             </tbody>
           </table>
+          <?php endwhile;?>
         </div>
     </div>
   </div>

@@ -7,7 +7,7 @@ function listPosts()
 {
     $postManager = new PostManager();
     $posts = $postManager->getPosts();
-    require('view/frontend/listPostsView.php');
+    require('view/frontend/listPostsView.php');  
 }
 
 function post()
@@ -16,7 +16,7 @@ function post()
     $commentManager = new CommentManager();
     $post = $postManager->getPost($_GET['id']);
     $comments = $commentManager->getComments($_GET['id']);
-    require('view/frontend/postView.php');      
+    require('view/frontend/postView.php');    
 }
 
 function addComment($postId, $author, $comment)
@@ -36,13 +36,13 @@ function addComment($postId, $author, $comment)
 function signalledComment($commentId)
 {
     $commentManager = new CommentManager();
-    $updateComment = $commentManager->flagComments($commentId);
-    
+    $updateComment = $commentManager->signalledComments($commentId);
+   
     if($updateComment === false) {
-      throw new Exception('Post signalé! En attente de traitement');
+      throw new Exception('Problème dans la mise à jour');
     }
     else {
-      header('Location: index.php?action=signalledComment&id=' . $commentId);    
+      require('view/frontend/signalledComment.php');   
     }
 }
 
@@ -50,5 +50,5 @@ function adminConnect()
 {
     $manager = new Manager();
     $code = $manager->getAdmConnect();
-    require('view/frontend/adminLogin.php');
+    require('view/backend/adminView.php');
 }

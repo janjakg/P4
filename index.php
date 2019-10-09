@@ -1,5 +1,6 @@
 <?php
 require('controller/frontend.php');
+require('controller/backend.php');
 
 try
 {
@@ -48,6 +49,7 @@ try
             case 'listComments' :
                 if(isset($_GET['commentId']) && $_GET['commentId'] > 0) {
                   listComments($_GET['commentId']);
+                  
                 }  else {
                   throw new Exception(' aucun identifiant de liste envoyé');                
                 }          
