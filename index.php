@@ -40,19 +40,19 @@ try
 
             case 'getSignalComment':
                 if(isset($_GET['idComment']) && $_GET['idComment'] > 0) {
-                  displayFlagcomment($_GET['signalled']);
+                  getSignalComment($_GET['signalled']);
+                 
                 } else {
-                    throw new Exception('commentaire valide');
+                    throw new Exception('Affichage commentaire impossible');
                 }  
                 break;
                 
             case 'listComments' :
                 if(isset($_GET['commentId']) && $_GET['commentId'] > 0) {
-                  listComments($_GET['commentId']);
-                  
+                  listComments($_GET['commentId']);                  
                 }  else {
                   throw new Exception(' aucun identifiant de liste envoyé');                
-                }          
+                }                      
         }
     } else {
         listPosts();
