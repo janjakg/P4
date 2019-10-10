@@ -64,45 +64,6 @@
   </div>
 
 
-  <div class="container"><br>
-    <div class="row"><br>
-      <h2>Liste des Posts :</h2>  
-    </div>
-    <div class="row">
-        <div class="table-responsive"><br>
-          <table class="table table-hover table-bordered"><br>
-            <thead>
-              <tr>                
-                <th scope="col">Id</th>
-                <th scope="col">Title</th>                
-                <th scope="col">Date</th>
-                <th scope="col">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td></td>
-                <td></td>
-                <td></td>                              
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td></td>
-                <td></td> 
-                <td></td>                              
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td></td>
-                <td></td> 
-                <td></td>                             
-              </tr>
-            </tbody>
-          </table>
-
-    </div>
-  </div><br>
                          
     <h2>Création d'un nouveau chapitre : </h2>  
       
