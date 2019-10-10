@@ -52,7 +52,15 @@ try
                   listComments($_GET['commentId']);                  
                 }  else {
                   throw new Exception(' aucun identifiant de liste envoyé');                
-                }                      
+                }
+                break;
+                
+            case 'eraseComment' :
+            if(isset($_GET['commentId']) && $_GET['commentId'] > 0) {
+              eraseComment( $_GET['commentId']);
+            } else {
+              throw new Exception(' aucun identifiant de commentaire effacé');
+            }
         }
     } else {
         listPosts();
