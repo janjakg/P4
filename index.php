@@ -40,7 +40,7 @@ try
 
             case 'getSignalComment':
                 if(isset($_GET['idComment']) && $_GET['idComment'] > 0) {
-                  getSignalComment($_GET['signalled']);
+                  getSignalComment($_GET['idComment']);
                  
                 } else {
                     throw new Exception('Affichage commentaire impossible');

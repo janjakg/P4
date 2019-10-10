@@ -31,7 +31,7 @@ function listComments($commentId)
 {
     $commentManager = new CommentManager();
     $listComment = $commentManager->getListComments($commentId);
-
+   
     if($listComment === false) {
       throw new Exception('Liste commentaire non à jour');
     }

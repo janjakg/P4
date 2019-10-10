@@ -28,7 +28,7 @@
                       <th scope="row"><?= nl2br(htmlspecialchars($row['id'])) ?></th>            
                       <td><?= nl2br(htmlspecialchars($row['comment'])) ?></td>
                       <td><?= nl2br(htmlspecialchars($row['signalled'])) ?></td>
-                      <td><button type="button" class="btn btn-danger">Supprimer</button></td> 
+                      <td><a class="btn btn-danger"href="index.php?action=eraseComment&amp;commentId">Supprimer</a></td> 
                       <td><button type="button" class="btn btn-success">Conserver</button></td>
                        
                     <?php endwhile; ?>                                
