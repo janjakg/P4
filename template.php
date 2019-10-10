@@ -24,8 +24,8 @@
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-      <a class="nav-link" href="index.php?action=getSignalComment">Admin</a>
+      <li class="nav-item">     
+      <a class="nav-link" href="index.php?action=listComments&amp;commentId=1">Admin</a>
       </li>
     </ul>
   </div>
