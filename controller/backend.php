@@ -40,5 +40,18 @@ function listComments($commentId)
     }
 }
 
+function eraseComment($commentId)
+{
+  $commentManager = new CommentManager();
+  $destroyComment = $commentManager-> deleteComment($commentId);
+
+  if($destroyComment === false) {
+    throw new Exception('commentaire non supprimé');
+  }
+  else {
+    require('index.php?action=eraseComment&id=' . $commentId);
+  }
+}
+
 
 
