@@ -27,7 +27,7 @@ function getSignalComment($signalled)
     }  
 }
 
-function listComments()
+function listComments($commentId)
 {
     $commentManager = new CommentManager();
     $listComment = $commentManager->getListComments($commentId);
