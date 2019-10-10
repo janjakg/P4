@@ -9,7 +9,7 @@
 <section class="shadow-lg p-3 mb-5 bg-white rounded">
     <div class="container"><br>
       <div class="row"><br>
-        <h2>Liste des Posts :</h2>  
+        <h2>Liste des Posts signalés :</h2>  
       </div>
       <div class="row">
           <div class="table-responsive"><br>
@@ -19,15 +19,18 @@
                   <th scope="col">Id</th>
                   <th scope="col">Comment</th>                
                   <th scope="col">Signalement</th>
-                  <th scope="col">Action</th>
+                  <th colspan="2"scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
-                  <tr>                
-                    <?php while ($row = $listComment->fetch()): ?>                
+              <?php while ($row = $listComment->fetch()): ?> 
+                  <tr>            
+                      <th scope="row"><?= nl2br(htmlspecialchars($row['id'])) ?></th>            
                       <td><?= nl2br(htmlspecialchars($row['comment'])) ?></td>
                       <td><?= nl2br(htmlspecialchars($row['signalled'])) ?></td>
-                      <td></td>  
+                      <td><button type="button" class="btn btn-danger">Supprimer</button></td> 
+                      <td><button type="button" class="btn btn-success">Conserver</button></td>
+                       
                     <?php endwhile; ?>                                
                   </tr>                                    
                 </tr>
