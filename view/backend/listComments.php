@@ -16,24 +16,22 @@
             <table class="table table-hover table-bordered"><br>
               <thead>
                 <tr>                
-                  <th scope="col">Id</th>
+                  
                   <th scope="col">Comment</th>                
-                  <th scope="col">Signalement</th>
+                
                   <th colspan="2"scope="col">Action</th>
                 </tr>
               </thead>
-              <tbody>
-              <?php while ($row = $listComment->fetch()): ?> 
+              <tbody>            
+              <?php while ($row = $signaledComments->fetch()): ?> 
                   <tr>            
-                      <th scope="row"><?= nl2br(htmlspecialchars($row['id'])) ?></th>            
+                                
                       <td><?= nl2br(htmlspecialchars($row['comment'])) ?></td>
-                      <td><?= nl2br(htmlspecialchars($row['signalled'])) ?></td>
+                      
                       <td><a class="btn btn-danger"href="index.php?action=eraseComment&amp;commentId">Supprimer</a></td> 
-                      <td><button type="button" class="btn btn-success">Conserver</button></td>
-                       
-                    <?php endwhile; ?>                                
-                  </tr>                                    
-                </tr>
+                      <td><button type="button" class="btn btn-success">Conserver</button></td>                   
+                  </tr>   
+                  <?php endwhile; ?>                                
               </tbody>
             </table>
           </div>
