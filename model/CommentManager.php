@@ -4,18 +4,18 @@ class CommentManager extends Manager
 {
   public function getComments($postId)
   {
-      $db = $this-> dbConnect();
-      $comments = $db-> prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
-      $comments-> execute(array($postId));
-      $comments ->fetch();
+      $db = $this->dbConnect();
+      $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, signalled FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
+      $comments->execute(array($postId));
+      $comments->fetch();
 
       return $comments;
   }
 
   public function postComment($postId, $author, $comment)
   {
-      $db =$this-> dbConnect();
-      $comments = $db-> prepare('INSERT INTO comments(post_id, author, comment, comment_date, signalled) VALUES(?, ?, ?, NOW(), 0)');
+      $db =$this->dbConnect();
+      $comments = $db->prepare('INSERT INTO comments(post_id, author, comment, comment_date, signalled) VALUES(?, ?, ?, NOW(), 0)');
       $affectedLines = $comments->execute(array($postId, $author, $comment));
 
       return $affectedLines;
@@ -32,23 +32,12 @@ class CommentManager extends Manager
   }
 
  
-  public function getSignalledComment()
+  public function getSignaledComments()
   {
       $db = $this->dbConnect();
-      $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, signalled FROM comments WHERE signalled = 1');
-      $displayFlagComment = $comments->execute();
-
-      return $displayFlagComment;
-  }
-
-  public function getListComments($commentId)
-  {
-      $db = $this-> dbConnect();
-      $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, signalled FROM comments WHERE signalled = 1');
-      $comments-> execute(array($commentId));
-      //$listComment = $comments ->fetch();
+      $signaledComments = $db->query('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, signalled FROM comments WHERE signalled = 1');
       
-      return $comments;
+      return $signaledComments;
   }
 
   public function deleteComment()
