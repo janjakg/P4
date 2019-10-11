@@ -47,12 +47,8 @@ try
                 }  
                 break;
                 
-            case 'listComments' :
-                if(isset($_GET['commentId']) && $_GET['commentId'] > 0) {
-                  listComments($_GET['commentId']);                  
-                }  else {
-                  throw new Exception(' aucun identifiant de liste envoyé');                
-                }
+            case 'adminIndex' :                
+                getSignaledComments();                 
                 break;
                 
             case 'eraseComment' :
@@ -61,6 +57,9 @@ try
             } else {
               throw new Exception(' aucun identifiant de commentaire effacé');
             }
+
+            default:
+              echo 'Pas d\'action';
         }
     } else {
         listPosts();
