@@ -25,7 +25,7 @@
     </ul>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">     
-      <a class="nav-link" href="index.php?action=listComments&amp;commentId=1">Admin</a>
+      <a class="nav-link" href="index.php?action=adminIndex">Admin</a>
       </li>
     </ul>
   </div>
