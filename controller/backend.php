@@ -15,29 +15,16 @@ function addPost($title, $content)
     }
 }
 
-function getSignalComment($signalled)
+function getSignaledComments()
 {
     $commentManager = new CommentManager();
-    $flaggedComments = $commentManager->displayFlagComment($signalled);
+    $signaledComments = $commentManager->getSignaledComments();
      
-    if ($flaggedComments === false) {
-        throw new Exception('post recupéré');
+    if ($signaledComments === false) {
+        throw new Exception('aucun commentaire signalé');
     } else {
-      require('view/backend/adminView.php');
+      require('view/backend/listComments.php');
     }  
-}
-
-function listComments($commentId)
-{
-    $commentManager = new CommentManager();
-    $listComment = $commentManager->getListComments($commentId);
-   
-    if($listComment === false) {
-      throw new Exception('Liste commentaire non à jour');
-    }
-    else {
-      require('view/backend/listComments.php');  
-    }
 }
 
 function eraseComment($commentId)
