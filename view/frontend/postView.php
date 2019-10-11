@@ -38,8 +38,8 @@
 <div class="comments">
         <?php while ($comment = $comments->fetch()): ?>
             <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
-            <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
-            <?php if (!$comment['signalled'] = 0): ?>
+            <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>           
+            <?php if ($comment['signalled'] == 0): ?>
                 <a href="index.php?action=signalledComment&amp;idComment=<?= $comment['id'] ?>&amp;idPost=<?= $_GET['id'] ?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Signaler</a>
             <?php endif; ?>
         <?php endwhile; ?>
