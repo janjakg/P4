@@ -23,21 +23,25 @@ function getSignaledComments()
     if ($signaledComments === false) {
         throw new Exception('aucun commentaire signalé');
     } else {
-      require('view/backend/listComments.php');
+      require('view/backend/adminIndex.php');
     }  
 }
 
-function eraseComment($commentId)
+function eraseComment($idComment)
 {
   $commentManager = new CommentManager();
-  $destroyComment = $commentManager-> deleteComment($commentId);
+  $destroyComment = $commentManager->deleteComment($idComment);
 
   if($destroyComment === false) {
     throw new Exception('commentaire non supprimé');
   }
   else {
-    require('index.php?action=eraseComment&id=' . $commentId);
-  }
+    require('view/backend/eraseComment.php');
+  } 
+}
+
+
+
 }
 
 
