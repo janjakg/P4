@@ -38,25 +38,27 @@ try
                 }
                 break;
 
-            case 'getSignalComment':
-                if(isset($_GET['idComment']) && $_GET['idComment'] > 0) {
-                  getSignalComment($_GET['idComment']);
-                 
-                } else {
-                    throw new Exception('Affichage commentaire impossible');
-                }  
-                break;
+           
                 
             case 'adminIndex' :                
                 getSignaledComments();                 
                 break;
                 
             case 'eraseComment' :
-            if(isset($_GET['commentId']) && $_GET['commentId'] > 0) {
-              eraseComment( $_GET['commentId']);
-            } else {
-              throw new Exception(' aucun identifiant de commentaire effacé');
-            }
+                if(isset($_GET['idComment']) && $_GET['idComment'] > 0) {
+                  eraseComment( $_GET['idComment']);             
+
+                } else {
+                  throw new Exception(' aucun identifiant de commentaire effacé');
+                }
+                 break;
+
+            case 'saveComment' :
+                if(isset($_GET['commentId']) && $_GET['commentId'] > 0) {
+                  saveComment($_GET['commentId']);
+                } else {
+                  throw new Exception('aucun identifiant de commentaire sauvegardé');
+                }
 
             default:
               echo 'Pas d\'action';
