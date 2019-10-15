@@ -9,7 +9,7 @@
 <section class="shadow-lg p-3 mb-5 bg-white rounded">
     <div class="container"><br>
       <div class="row"><br>
-        <h2>Liste des Posts signalés :</h2>  
+        <h2>Liste des commentaires signalés :</h2>  
       </div>
       <div class="row">
           <div class="table-responsive"><br>
@@ -27,9 +27,10 @@
                   <tr>            
                                 
                       <td><?= nl2br(htmlspecialchars($row['comment'])) ?></td>
-                      
-                      <td><a class="btn btn-danger"href="index.php?action=eraseComment&amp;commentId">Supprimer</a></td> 
-                      <td><button type="button" class="btn btn-success">Conserver</button></td>                   
+                      <td><a class="btn btn-danger"href="index.php?action=eraseComment&amp;idComment=<?= ($row['id']) ?>">Supprimer</a></td> 
+                    
+                      <td><a class="btn btn-success"href="index.php?action=saveComment&amp;commentId=<?= ($row['id']) ?>">Sauvegarder</a></td>
+                               
                   </tr>   
                   <?php endwhile; ?>                                
               </tbody>
