@@ -40,14 +40,23 @@ class CommentManager extends Manager
       return $signaledComments;
   }
 
-  public function deleteComment()
+  public function deleteComment($idComment)
   {
-    $db = $this-> dbConnect();
+    $db = $this->dbConnect();
     $comments = $db->prepare('DELETE FROM comments WHERE comments.id = ?');
-    $destroyComment = $comments->execute($commentId);
+    $destroyComment = $comments->execute(array($idComment));
 
     return $destroyComment;
 
+  }
+
+  public function retainComment($commentId)
+  {
+    $db = $this->dbConnect();
+    $comments = $db->prepare('UPDATE comments SET signalled = 0 WHERE comments.id = ?');
+    $updateSignaledComment = $comments->execute(array($commentId));
+
+    return $updateSignaledComment;
   }
 
  }
