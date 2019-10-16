@@ -28,9 +28,9 @@
                                 
                       <td><?= nl2br(htmlspecialchars($row['comment'])) ?></td>
                       <td><a class="btn btn-danger"href="index.php?action=eraseComment&amp;idComment=<?= ($row['id']) ?>">Supprimer</a></td> 
-                    
+                      <?php if ($row['signalled'] == 1): ?>
                       <td><a class="btn btn-success"href="index.php?action=saveComment&amp;commentId=<?= ($row['id']) ?>">Sauvegarder</a></td>
-                               
+                      <?php endif; ?>            
                   </tr>   
                   <?php endwhile; ?>                                
               </tbody>

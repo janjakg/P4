@@ -29,7 +29,7 @@ function addComment($postId, $author, $comment)
         
     }
     else {
-        header('Location: index.php?action=addComment&id=' . $postId);
+        header('Location: index.php?action=post&id=' . $postId);
     }
 }
 
@@ -46,9 +46,3 @@ function signalledComment($commentId)
     }
 }
 
-function adminConnect()
-{
-    $manager = new Manager();
-    $code = $manager->getAdmConnect();
-    require('view/backend/adminView.php');
-}
