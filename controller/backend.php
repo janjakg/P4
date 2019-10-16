@@ -46,12 +46,18 @@ function saveComment($commentId)
   $updateSignaledComment = $commentManager->retainComment($commentId);
 
   if($updateSignaledComment === false) {
-    throw new Exception('commentaire non sauvegardé');    
+    throw new Exception('commentaire non sauvegardé');      
   }
   else {
     require('view/backend/saveComment.php');
   }
 
+}
+function postListing()
+{
+  $postManager = new PostManager();
+  $posts = $postManager->getPosts();
+  require('view/backend/adminCrud.php'); 
 }
 
 
