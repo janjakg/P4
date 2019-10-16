@@ -36,9 +36,7 @@ try
                 } else {
                     throw new Exception('Aucun identifiant de commentaire envoyé');
                 }
-                break;
-
-           
+                break;           
                 
             case 'adminIndex' :                
                 getSignaledComments();                 
@@ -59,6 +57,12 @@ try
                 } else {
                   throw new Exception('aucun identifiant de commentaire sauvegardé');
                 }
+                break;
+
+            case 'adminCrud' :
+                postListing();
+                break;
+
 
             default:
               echo 'Pas d\'action';
