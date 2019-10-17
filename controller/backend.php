@@ -53,12 +53,28 @@ function saveComment($commentId)
   }
 
 }
+
 function postListing()
 {
   $postManager = new PostManager();
   $posts = $postManager->getPosts();
   require('view/backend/adminCrud.php'); 
 }
+
+function erasePost($idPost)
+{
+  $postManager = new PostManager();
+  $destroyPost = $postManager->deletePost($idPost);
+
+  if($destroyPost === false) {
+    throw new Exception('post non supprimé');
+  }
+  else {
+    require('view/backend/erasePost.php');
+  } 
+}
+
+
 
 
 
