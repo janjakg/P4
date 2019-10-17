@@ -2,16 +2,15 @@
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 
-function addPost($title, $content)
+function createPost()
 {
     $postManager = new PostManager();
-    $postAdded = $postManager->createPost($title, $content);
-    require('view/backend/adminView.php');
+    $postAdded = $postManager->addPost();   
 
     if ($postAdded === false) {
         throw new Exception('impossible d\ajouter le post!');
     } else {
-        header('Location: index.php?action=title&id=' . $postId);
+      require('view/backend/createPost.php');
     }
 }
 
@@ -72,6 +71,19 @@ function erasePost($idPost)
   else {
     require('view/backend/erasePost.php');
   } 
+}
+
+function readPost($postId)
+{
+  $postManager = new PostManager();
+  $displayPost = $postManager->editPost($postId);
+
+  if($displayPost === false) {
+    throw new Exception('post non affiché');
+  }
+  else {
+    require('view/backend/readPost.php');
+  }
 }
 
 
