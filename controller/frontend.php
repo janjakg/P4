@@ -16,7 +16,7 @@ function post()
     $commentManager = new CommentManager();
     $post = $postManager->getPost($_GET['id']);
     $comments = $commentManager->getComments($_GET['id']);
-    require('view/frontend/postView.php');    
+    require('view/frontend/postView.php');     
 }
 
 function addComment($postId, $author, $comment)

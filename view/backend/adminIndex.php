@@ -1,10 +1,13 @@
   
-<?php $title = "Liste des commentaires" ?>
+<?php $title = "Liste des commentaires signalés" ?>
 
 <?php ob_start(); ?>
 <div class="headline">
     <h1>Billet simple pour l'Alaska</h1>
 </div>
+<p>
+<a href="index.php?action=adminCrud">Liste de tous les posts</a>
+</p>
 
 <section class="shadow-lg p-3 mb-5 bg-white rounded">
     <div class="container"><br>
@@ -29,7 +32,7 @@
                       <td><?= nl2br(htmlspecialchars($row['comment'])) ?></td>
                       <td><a class="btn btn-danger"href="index.php?action=eraseComment&amp;idComment=<?= ($row['id']) ?>">Supprimer</a></td> 
                       <?php if ($row['signalled'] == 1): ?>
-                      <td><a class="btn btn-success"href="index.php?action=saveComment&amp;commentId=<?= ($row['id']) ?>">Sauvegarder</a></td>
+                      <td><a href="index.php?action=saveComment&amp;commentId=<?= ($row['id']) ?>"class="btn btn-success">Sauvegarder</a></td>
                       <?php endif; ?>            
                   </tr>   
                   <?php endwhile; ?>                                

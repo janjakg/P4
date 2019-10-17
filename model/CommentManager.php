@@ -56,7 +56,7 @@ class CommentManager extends Manager
     $comments = $db->prepare('UPDATE comments SET signalled = 0 WHERE comments.id = ?');
     $updateSignaledComment = $comments->execute(array($commentId));
 
-    return $updateSignaledComment;
+    return $updateSignaledComment;   
   }
 
  }
