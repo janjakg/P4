@@ -70,6 +70,18 @@ try
                   throw new Exception('aucun identifiant de post supprimé');
                 }
                 break;
+
+            case 'readPost' :
+                if(isset($_GET['postId']) && $_GET['postId'] > 0) {
+                  readPost($_GET['postId']);
+                } else {
+                  throw new Exception('aucun identifiant de lecture affiché');
+                }
+                break;
+
+            case 'createPost' :            
+              createPost();            
+            break;
                 
 
             default:
