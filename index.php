@@ -63,6 +63,14 @@ try
                 postListing();
                 break;
 
+            case 'erasePost' :
+                if(isset($_GET['idPost']) && $_GET['idPost'] > 0) {
+                  erasePost($_GET['idPost']);
+                } else {
+                  throw new Exception('aucun identifiant de post supprimé');
+                }
+                break;
+                
 
             default:
               echo 'Pas d\'action';
