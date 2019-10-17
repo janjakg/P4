@@ -15,23 +15,23 @@
           <div class="table-responsive"><br>
             <table class="table table-hover table-bordered"><br>
               <thead>
-              <th colspan="4"scope="col"><button type="button" class="btn btn-success">Create new post</button></th>
+              <th colspan="5"scope="col"><button type="button" class="btn btn-success">Create new post</button></th>
                 <tr>               
                   
-                  <th scope="col">Post</th>                
+                  <th scope="col">Chapitre</th>
+                  <th scope="col">Post</th>                 
                 
                   <th colspan="3"scope="col">Action</th>                  
                 </tr>
               </thead>
               <tbody>            
               <?php while ($list = $posts->fetch()): ?> 
-                  <tr>            
-                                
-                      <td><?= nl2br(htmlspecialchars($list['posts'])) ?></td>
-                      
+                  <tr>        
+                      <td><?= nl2br(htmlspecialchars($list['id'])) ?></td>          
+                      <td><?= nl2br(htmlspecialchars($list['content'])) ?></td>  
+                      <td><button type="button" class="btn btn-secondary">Read</button></td>                     
                       <td><button type="button" class="btn btn-info">Update</button></td>
-                      <td><button type="button" class="btn btn-danger">Delete</button></td>
-                             
+                      <td><button type="button" class="btn btn-danger">Delete</button></td>                           
                   </tr>   
               <?php endwhile; ?>                                
               </tbody>
