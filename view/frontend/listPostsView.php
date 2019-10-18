@@ -6,7 +6,7 @@
 </div>
 
 
-<a href="view/frontend/adminLogin.php">connexion</a>
+
 
 
 <?php while ($data = $posts->fetch()):?>
