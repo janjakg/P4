@@ -32,19 +32,19 @@ try
 
             case 'signalledComment':
                 if (isset($_GET['idComment']) && $_GET['idComment'] > 0) {
-                    signalledComment($_GET['idComment']);                    
+                    signalledComment($_GET['idComment']);
                 } else {
                     throw new Exception('Aucun identifiant de commentaire envoyé');
                 }
-                break;           
-                
-            case 'adminIndex' :                
-                getSignaledComments();                 
                 break;
-                
+
+            case 'adminIndex' :
+                getSignaledComments();
+                break;
+
             case 'eraseComment' :
                 if(isset($_GET['idComment']) && $_GET['idComment'] > 0) {
-                  eraseComment( $_GET['idComment']);             
+                  eraseComment( $_GET['idComment']);
 
                 } else {
                   throw new Exception(' aucun identifiant de commentaire effacé');
@@ -79,10 +79,10 @@ try
                 }
                 break;
 
-            case 'createPost' :            
-              createPost();            
+            case 'createPost' :
+              createPost();
             break;
-                
+
 
             default:
               echo 'Pas d\'action';
@@ -94,6 +94,5 @@ try
   catch (Exception $e)
   {
       die('Erreur : ' . $e->getMessage());
-  }  
+  }
 
-  

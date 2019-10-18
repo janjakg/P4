@@ -36,7 +36,7 @@
 <?php if ($comments): ?>
 <div class="shadow-lg p-3 mb-5 bg-white rounded">
 <div class="comments">
-        <?php while ($comment = $comments->fetch()): ?>
+        <?php foreach ($comments as $comment): ?>
             <div class="card mb-4">
                 <div class="card-body">
                     <p><strong><?= htmlspecialchars($comment['author']) ?></strong>
@@ -50,7 +50,7 @@
                     <?php endif; ?>
                 </div>
             </div>
-        <?php endwhile; ?>
+        <?php endforeach; ?>
     </div>
 </div>
 <?php else: ?>
