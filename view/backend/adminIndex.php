@@ -43,7 +43,7 @@
                       <td><?= nl2br(htmlspecialchars($row['comment'])) ?></td>
                       <td><a class="btn btn-danger"href="index.php?action=eraseComment&amp;idComment=<?= ($row['id']) ?>">Supprimer</a></td> 
                       <?php if ($row['signalled'] == 1): ?>
-                      <td><a href="index.php?action=saveComment&amp;commentId=<?= ($row['id']) ?>"class="btn btn-success">Sauvegarder</a></td>
+                      <td><a href="index.php?action=saveComment&amp;commentId=<?= ($row['id']) ?>"class="btn btn-success">Valider</a></td>
                       <?php endif; ?>            
                   </tr>   
                   <?php endwhile; ?>                                
