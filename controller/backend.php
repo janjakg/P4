@@ -41,7 +41,7 @@ function eraseComment($idComment)
 
 function saveComment($commentId)
 {
-  $commentManger = new CommentManager();
+  $commentManager = new CommentManager();
   $updateSignaledComment = $commentManager->retainComment($commentId);
   
     require('view/backend/saveComment.php');
