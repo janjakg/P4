@@ -43,7 +43,6 @@ function saveComment($commentId)
 {
   $commentManger = new CommentManager();
   $updateSignaledComment = $commentManager->retainComment($commentId);
-
   
     require('view/backend/saveComment.php');
   
