@@ -44,12 +44,9 @@ function saveComment($commentId)
   $commentManger = new CommentManager();
   $updateSignaledComment = $commentManager->retainComment($commentId);
 
-  if($updateSignaledComment === false) {
-    throw new Exception('commentaire non sauvegardé');      
-  }
-  else {
+  
     require('view/backend/saveComment.php');
-  }
+  
 
 }
 

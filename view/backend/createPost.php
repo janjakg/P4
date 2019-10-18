@@ -21,8 +21,17 @@
     </div>
 
     <p>Nouveau Post</p>
+    <form action="">
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    </form>
     
 </section>
+<script src="../../node_modules/tinymce/tinymce.min.js"></script>
+<script >tinymce.init({
+  selector:'textarea'
+})
+
+</script>
 
 <?php $content = ob_get_clean(); ?>
 
