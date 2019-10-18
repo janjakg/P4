@@ -21,9 +21,9 @@
         
         <p>
             <?= nl2br(htmlspecialchars($data['content'])) ?>
-            <br />
-            
+            <br />            
         </p>
+        <p>le <?= nl2br(htmlspecialchars($data['creation_date_fr'])) ?></p>
         </div>
     </div>
 
