@@ -37,13 +37,19 @@
 <div class="shadow-lg p-3 mb-5 bg-white rounded">
 <div class="comments">
         <?php while ($comment = $comments->fetch()): ?>
-            <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
-            <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>           
-            <?php if ($comment['signalled'] == 0): ?>
-                <a href="index.php?action=signalledComment&amp;idComment=<?= $comment['id'] ?>&amp;idPost=<?= $_GET['id'] ?>" class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Signaler</a>
-            <?php else: ?>  
-            <button type="button" class="btn btn-secondary"><em>commentaire signalé</em></button>
-            <?php endif; ?>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <p><strong><?= htmlspecialchars($comment['author']) ?></strong>
+                        le <?= $comment['comment_date_fr'] ?></p>
+                    <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+                    <?php if ($comment['signalled'] == 0): ?>
+                        <a href="index.php?action=signalledComment&amp;idComment=<?= $comment['id'] ?>&amp;idPost=<?= $_GET['id'] ?>"
+                           class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Signaler</a>
+                    <?php else: ?>
+                        <button type="button" class="btn btn-secondary"><em>commentaire signalé</em></button>
+                    <?php endif; ?>
+                </div>
+            </div>
         <?php endwhile; ?>
     </div>
 </div>
