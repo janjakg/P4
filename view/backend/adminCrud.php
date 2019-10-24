@@ -41,12 +41,11 @@
               </thead>
               <tbody>            
               <?php while ($list = $posts->fetch()): ?> 
-                  <tr>        
-                      <td><?= nl2br(htmlspecialchars($list['id'])) ?></td>  
+                  <tr>       
                       <td><strong><?= nl2br(htmlspecialchars($list['title'])) ?></strong></td>                            
-                      <td><?= nl2br(htmlspecialchars(substr($list['content'],0,100))) ?></td>  
+                      <td><?= nl2br(htmlspecialchars(substr($list['content'],0,90))) ?>...</td>  
                       <td><a class="btn btn-secondary"href="index.php?action=readPost&amp;postId=<?= ($list['id']) ?>">Read</a></td>                     
-                      <td><button type="button" class="btn btn-info">Update</button></td>
+                      <td><a class="btn btn-info"href="index.php?action=updatePost&amp;idPost=<?= ($list['id']) ?><?= ($list['title']) ?><?= ($list['content']) ?>">Update</a></td>
                       <td><a class="btn btn-danger"href="index.php?action=erasePost&amp;idPost=<?= ($list['id']) ?>">Delete</a></td>                           
                   </tr>   
               <?php endwhile; ?>                                
