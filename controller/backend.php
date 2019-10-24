@@ -1,18 +1,7 @@
 <?php
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
-
-function createPost()
-{
-    $postManager = new PostManager();
-    $postAdded = $postManager->addPost();   
-
-    if ($postAdded === false) {
-        throw new Exception('impossible d\ajouter le post!');
-    } else {
-      require('view/backend/createPost.php');
-    }
-}
+require_once('model/RegistrationManager.php');
 
 function getSignaledComments()
 {
@@ -44,9 +33,7 @@ function saveComment($commentId)
   $commentManager = new CommentManager();
   $updateSignaledComment = $commentManager->retainComment($commentId);
   
-    require('view/backend/saveComment.php');
-  
-
+    require('view/backend/saveComment.php'); 
 }
 
 function postListing()
@@ -79,6 +66,43 @@ function readPost($postId)
   }
   else {
     require('view/backend/readPost.php');
+  }
+}
+
+function updatePost($idPost)
+{
+  $postManager =  new PostManager();
+  $saveUpdate = $postManager->setUpdate($idPost);
+
+  if($saveUpdate === false) {
+    throw new Exception('post non mis à jour');
+  }
+  else {
+    require('view/backend/updatePost.php');
+  }
+}
+
+function createPost()
+{
+    $postManager = new PostManager();
+    $postAdded = $postManager->addPost();   
+
+    if ($postAdded === false) {
+        throw new Exception('impossible d\ajouter le post!');
+    } else {
+      require('view/backend/createPost.php');
+    }
+}
+
+function adminRegistration($pseudo, $email, $password)
+{
+    $registrationManager = new RegistrationManager();
+    $registration = $registrationManager->register($pseudo, $email, $password);
+
+    if ($registration === false) {
+      throw new Exception('inscription impossible!');
+  } else {
+    require('view/backend/adminRegistration.php');
   }
 }
 
