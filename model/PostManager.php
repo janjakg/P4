@@ -21,15 +21,6 @@ class PostManager extends Manager
     return $post;
   }
 
-  public function addPost()
-  {
-    $db = $this->dbconnect();
-    $req = $db->prepare('INSERT INTO posts(id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr) VALUES (?, ? , ?, NOW())');
-    $postAdded = $req;
-   
-    return $postAdded;
-  }
-
   public function deletePost($idPost)
   {
     $db = $this->dbconnect();
@@ -47,5 +38,23 @@ class PostManager extends Manager
     $displayPost = $req->fetch();
 
     return $displayPost;
+  }
+
+  public function setUpdate($idPost)
+  {
+    $db = $this->dbconnect();
+    $req = $db->prepare('UPDATE posts SET title = ?, content = ?, WHERE posts.id = ?');
+    $saveUpdate = $req->execute(array($idPost));
+
+    return $saveUpdate;
+  } 
+  
+  public function addPost()
+  {
+    $db = $this->dbconnect();
+    $req = $db->prepare('INSERT INTO posts(id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr) VALUES (?, ? , ?, NOW())');
+    $postAdded = $req;
+   
+    return $postAdded;
   }
 }
