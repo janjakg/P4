@@ -18,14 +18,12 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="index.php">Posts</a>
-      </li>
-    </ul>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">     
-      <a class="nav-link" href="index.php?action=adminIndex">Admin</a>
+      <a class="nav-link" href="index.php?action=adminRegistration">Inscription</a>
+      </li>
+      <li class="nav-item">     
+      <a class="nav-link" href="index.php?action=adminIndex">Connexion</a>
       </li>
     </ul>
   </div>
