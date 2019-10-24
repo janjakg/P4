@@ -21,15 +21,21 @@
     </div>
 
     <p>Nouveau Post</p>
-    <form action="">
-    <textarea name="" id="" cols="30" rows="10"></textarea>
-    </form>
+   <form action="index.php?action=createInfo" method="post">
+   <div>Titre<input type="text" class="form-control" name="myTitle" id="myTitle"></div><br>
+   <textarea name="myTextarea" id="myTextarea" cols="30" rows="10">   
+   </textarea><br>
+   <button type="submit"class="btn btn-primary">Envoi</button>
+   </form>
+    
     
 </section>
 <script src="../../node_modules/tinymce/tinymce.min.js"></script>
 <script >tinymce.init({
-  selector:'textarea'
-})
+  selector:'textarea',
+  language_url : '/Language/fr_FR.js',
+  language: 'fr_FR'
+});
 
 </script>
 
