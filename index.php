@@ -67,9 +67,50 @@ try
                   throw new Exception('aucun identifiant de lecture affiché');
                 }
                 break;
-            case 'createPost' :
+            case 'createPost' :                
               createPost();
             break;
+            case 'updatePost' :
+                if(isset($_GET['idPost']) && $_GET['idPost']  > 0) {
+                  updatePost($_GET['idPost']);
+                }else {
+                  throw new Exception('aucun identifiant de mise à jour affiché');
+                }
+            case 'adminRegistration' :  
+         
+             adminRegistration($_POST['pseudo'], $_POST['email'], $_POST['password'] );
+           if(isset($_POST['formInscription']))
+            {          
+    
+             if(!empty($_POST['pseudo'])&& !empty($_POST['email']) && !empty($_POST['email2']) && !empty($_POST['password']) && !empty($_POST['password2']))
+             {
+               $pseudo = htmlspecialchars($_POST['pseudo']);
+               $email = htmlspecialchars($_POST['email']);
+               $email2 = htmlspecialchars($_POST['email2']);
+               $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
+               $password2 = password_hash($_POST['password2'],PASSWORD_DEFAULT);
+
+              $pseudolength = strlen($pseudo);
+              if($pseudolength <= 255) 
+              {
+                if($email == $email2)
+                 {
+                   if($password == $password2)
+                   {
+                     echo('parfait pour l\'inscription');
+                   }
+                }else{
+                  throw new Exception('Vos adresses email ne correspondent pas!');
+                }                
+              }else{
+                throw new Exception('votre pseudo ne doit pas excéder 255 caractères!');
+              }
+             }else{
+              throw new Exception ('Tous les champs doivent etre remplis');
+             }
+            }
+            break;         
+ 
             default:
               echo 'Pas d\'action';
         }
