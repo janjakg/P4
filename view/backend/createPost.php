@@ -32,8 +32,7 @@
 </section>
 <script src="../../node_modules/tinymce/tinymce.min.js"></script>
 <script >tinymce.init({
-  selector:'textarea',
-  language_url : '/Language/fr_FR.js',
+  mode:'textareas', 
   language: 'fr_FR'
 });
 
@@ -41,4 +40,4 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('template.php'); ?>
+<?php require('adminTemplate.php'); ?>
