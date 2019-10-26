@@ -20,7 +20,7 @@
         </h3>
         
         <p>
-            <?= nl2br(htmlspecialchars($data['content'])) ?>
+            <?= nl2br(htmlspecialchars(substr($data['content'],0,200))) ?>...
             <br />            
         </p>
         <p>le <?= nl2br(htmlspecialchars($data['creation_date_fr'])) ?></p>
