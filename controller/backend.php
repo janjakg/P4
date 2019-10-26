@@ -97,12 +97,24 @@ function createPost()
 function adminRegistration($pseudo, $email, $password)
 {
     $registrationManager = new RegistrationManager();
-    $registration = $registrationManager->register($pseudo, $email, $password);
-
+    $registration = $registrationManager->register($pseudo, $email, $password);     
+    
     if ($registration === false) {
       throw new Exception('inscription impossible!');
   } else {
     require('view/backend/adminRegistration.php');
+  }
+}
+
+function adminLogin()
+{
+  $registrationManager = new RegistrationManager();
+  $log = $registrationManager->login();
+
+  if($log === false) {
+    throw new Exception('login impossible!');
+  }else {
+    require('view/backend/adminLogin.php');
   }
 }
 
