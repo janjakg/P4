@@ -1,4 +1,3 @@
-  
 <?php $title = "Commentaire supprimé" ?>
 
 <?php ob_start(); ?>
