@@ -8,6 +8,7 @@ try
             case 'listPosts':
                 listPosts();
                 break;
+
             case 'post':
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     post();
@@ -15,6 +16,7 @@ try
                     echo 'Erreur : aucun identifiant de billet envoyé';
                 }
                 break;
+
             case 'addComment':
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     if (!empty($_POST['author']) && !empty($_POST['comment'])) {
@@ -26,6 +28,7 @@ try
                     echo 'Erreur : aucun identifiant de billet envoyé';
                 }
                 break;
+
             case 'signalledComment':
                 if (isset($_GET['idComment']) && $_GET['idComment'] > 0) {
                     signalledComment($_GET['idComment']);
@@ -33,9 +36,11 @@ try
                     throw new Exception('Aucun identifiant de commentaire envoyé');
                 }
                 break;
+
             case 'adminIndex' :
                 getSignaledComments();
                 break;
+
             case 'eraseComment' :
                 if(isset($_GET['idComment']) && $_GET['idComment'] > 0) {
                   eraseComment( $_GET['idComment']);
@@ -43,6 +48,7 @@ try
                   throw new Exception(' aucun identifiant de commentaire effacé');
                 }
                  break;
+
             case 'saveComment' :
                 if(isset($_GET['commentId']) && $_GET['commentId'] > 0) {
                   saveComment($_GET['commentId']);
@@ -50,9 +56,11 @@ try
                   throw new Exception('aucun identifiant de commentaire sauvegardé');
                 }
                 break;
+
             case 'adminCrud' :
                 postListing();
                 break;
+
             case 'erasePost' :
                 if(isset($_GET['idPost']) && $_GET['idPost'] > 0) {
                   erasePost($_GET['idPost']);
@@ -60,6 +68,7 @@ try
                   throw new Exception('aucun identifiant de post supprimé');
                 }
                 break;
+
             case 'readPost' :
                 if(isset($_GET['postId']) && $_GET['postId'] > 0) {
                   readPost($_GET['postId']);
@@ -67,22 +76,32 @@ try
                   throw new Exception('aucun identifiant de lecture affiché');
                 }
                 break;
+
             case 'createPost' :                
               createPost();
-            break;
+                break;
+
+            case 'sendPost' :           
+             if(isset($_GET['postId']) && $_GET['postId'] > 0) {
+               sendPost($postId);
+             } else {
+              throw new Exception('pas de post créé pour la bdd');
+            }           
+                break;
+
             case 'updatePost' :
-                if(isset($_GET['idPost']) && $_GET['idPost']  > 0) {
-                  updatePost($_GET['idPost']);
+                if(isset($_GET['idPost'])  && $_GET['title'] && $_GET['content']> 0) {
+                  updatePost($_GET['idPost'], $_GET['title'],$_GET['content']);
                 }else {
                   throw new Exception('aucun identifiant de mise à jour affiché');
                 }
-            case 'adminRegistration' :  
-           
+                break;
+
+            case 'adminRegistration' :             
               adminRegistration($_POST['pseudo'], $_POST['email'], $_POST['password']);
               
                 if(isset($_POST['formInscription']))
-                  {          
-          
+                  {                    
                   if(!empty($_POST['pseudo'])&& !empty($_POST['email']) && !empty($_POST['email2']) && !empty($_POST['password']) && !empty($_POST['password2']))
                   {
                     $pseudo = htmlspecialchars($_POST['pseudo']);
@@ -112,16 +131,13 @@ try
                 }
                 break;
            
-            case 'adminLogin' :
-            
-             adminLogin();
-                     
-            break;   
- 
+            case 'adminLogin' :            
+             adminLogin();                     
+                break;  
+
             default:
              echo 'Pas d\'action';
-            break;
-            
+                break;            
         }
     } else {
         listPosts();
