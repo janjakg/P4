@@ -40,11 +40,11 @@ class PostManager extends Manager
     return $displayPost;
   }
 
-  public function setUpdate($idPost)
+  public function setUpdate($idPost, $title, $content)
   {
     $db = $this->dbconnect();
-    $req = $db->prepare('UPDATE posts SET title = ?, content = ?, WHERE posts.id = ?');
-    $saveUpdate = $req->execute(array($idPost));
+    $req = $db->prepare('UPDATE posts SET id = ?, title = ?, content = ? WHERE posts.id = ?');
+    $saveUpdate = $req->execute(array($idPost, $title, $content));
 
     return $saveUpdate;
   } 
@@ -56,5 +56,12 @@ class PostManager extends Manager
     $postAdded = $req;
    
     return $postAdded;
+  }
+
+  public function writePost($postId)
+  {
+    $db = $this->dbConnect();
+    $req = $db->prepare('INSERT INTO posts(id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr) VALUES (?, ? , ?, NOW())');
+    $launchPost = $req->execute([($postId)]);
   }
 }
