@@ -44,6 +44,10 @@ try
             case 'eraseComment' :
                 if(isset($_GET['idComment']) && $_GET['idComment'] > 0) {
                   eraseComment( $_GET['idComment']);
+<<<<<<< HEAD
+=======
+
+>>>>>>> ecaeca1a0ebe1323be5322d10c6a84039eabd4a8
                 } else {
                   throw new Exception(' aucun identifiant de commentaire effacé');
                 }
@@ -77,6 +81,7 @@ try
                 }
                 break;
 
+<<<<<<< HEAD
             case 'createPost' :  
             if(isset($_POST['title']) && isset($_POST['content'])) {
               if(!empty($_POST['title']) && !empty($_POST['content'])) {
@@ -144,6 +149,12 @@ try
             case 'adminLogin' :            
              adminLogin();                     
                 break;  
+=======
+            case 'createPost' :
+              createPost();
+            break;
+
+>>>>>>> ecaeca1a0ebe1323be5322d10c6a84039eabd4a8
 
             default:
              echo 'Pas d\'action';
@@ -156,4 +167,9 @@ try
   catch (Exception $e)
   {
       die('Erreur : ' . $e->getMessage());
+<<<<<<< HEAD
   }
+=======
+  }
+
+>>>>>>> ecaeca1a0ebe1323be5322d10c6a84039eabd4a8

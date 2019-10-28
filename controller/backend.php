@@ -1,18 +1,33 @@
 <?php
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
+<<<<<<< HEAD
 require_once('model/RegistrationManager.php');
+=======
+
+function createPost()
+{
+    $postManager = new PostManager();
+    $postAdded = $postManager->addPost();
+
+    if ($postAdded === false) {
+        throw new Exception('impossible d\ajouter le post!');
+    } else {
+      require('view/backend/createPost.php');
+    }
+}
+>>>>>>> ecaeca1a0ebe1323be5322d10c6a84039eabd4a8
 
 function getSignaledComments()
 {
     $commentManager = new CommentManager();
     $signaledComments = $commentManager->getSignaledComments();
-     
+
     if ($signaledComments === false) {
         throw new Exception('aucun commentaire signalé');
     } else {
       require('view/backend/adminIndex.php');
-    }  
+    }
 }
 
 function eraseComment($idComment)
@@ -25,22 +40,32 @@ function eraseComment($idComment)
   }
   else {
     require('view/backend/eraseComment.php');
-  } 
+  }
 }
 
 function saveComment($commentId)
 {
   $commentManager = new CommentManager();
   $updateSignaledComment = $commentManager->retainComment($commentId);
+<<<<<<< HEAD
   
     require('view/backend/saveComment.php'); 
+=======
+
+  if($updateSignaledComment === false) {
+    throw new Exception('commentaire non sauvegardé');
+  }
+  else {
+    require('view/backend/saveComment.php');
+  }
+>>>>>>> ecaeca1a0ebe1323be5322d10c6a84039eabd4a8
 }
 
 function postListing()
 {
   $postManager = new PostManager();
   $posts = $postManager->getPosts();
-  require('view/backend/adminCrud.php'); 
+  require('view/backend/adminCrud.php');
 }
 
 function erasePost($idPost)
@@ -53,7 +78,7 @@ function erasePost($idPost)
   }
   else {
     require('view/backend/erasePost.php');
-  } 
+  }
 }
 
 function readPost($postId)
