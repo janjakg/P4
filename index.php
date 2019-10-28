@@ -77,8 +77,15 @@ try
                 }
                 break;
 
-            case 'createPost' :                
-              createPost();
+            case 'createPost' :  
+            if(isset($_POST['title']) && isset($_POST['content'])) {
+              if(!empty($_POST['title']) && !empty($_POST['content'])) {
+                createPost($_POST['title'], $_POST['content']);
+              } else{
+                echo 'test';
+              }  
+            }      
+            
                 break;
 
             case 'sendPost' :           
@@ -97,12 +104,15 @@ try
                 }
                 break;
 
-            case 'adminRegistration' :             
-              adminRegistration($_POST['pseudo'], $_POST['email'], $_POST['password']);
+            //case 'adminRegistration' :  
+            //if(isset($_GET['pseudo']) && isset($_POST['email']) && isset($_POST['password'])) {
+             // adminRegistration($pseudo, $email, $password);
+            //}           
+            
               
-                if(isset($_POST['formInscription']))
-                  {                    
-                  if(!empty($_POST['pseudo'])&& !empty($_POST['email']) && !empty($_POST['email2']) && !empty($_POST['password']) && !empty($_POST['password2']))
+               
+                                 
+                  /*if(!empty($_POST['pseudo'])&& !empty($_POST['email']) && !empty($_POST['email2']) && !empty($_POST['password']) && !empty($_POST['password2']))
                   {
                     $pseudo = htmlspecialchars($_POST['pseudo']);
                     $email = htmlspecialchars($_POST['email']);
@@ -127,9 +137,9 @@ try
                     }
                   }else{
                     throw new Exception ('Tous les champs doivent etre remplis');
-                  }
-                }
-                break;
+                  }*/
+         
+                //break;
            
             case 'adminLogin' :            
              adminLogin();                     

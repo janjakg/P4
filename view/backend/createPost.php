@@ -1,17 +1,19 @@
-  
-<?php $title = "Creer un post" ?>
+  <?php $title = "Creer un post" ?>
 
-<?php ob_start(); ?>
-<div class="headline">
+  <?php ob_start(); ?>
+  <div class="headline">
     <h1>Billet simple pour l'Alaska</h1>
-</div>
+  </div>
 
-<section class="shadow-lg p-3 mb-5 bg-white rounded">
+  <section class="shadow-lg p-3 mb-5 bg-white rounded">
     <nav>
       <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="index.php?action=adminIndex" role="tab" aria-controls="nav-home" aria-selected="true">Liste des commentaires signalés</a>
-        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="index.php?action=adminCrud" role="tab" aria-controls="nav-profile" aria-selected="false">Liste des posts</a>
-        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="index.php?action=createPost" role="tab" aria-controls="nav-contact" aria-selected="false">Créer un post</a>
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="index.php?action=adminIndex"
+          role="tab" aria-controls="nav-home" aria-selected="true">Liste des commentaires signalés</a>
+        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="index.php?action=adminCrud" role="tab"
+          aria-controls="nav-profile" aria-selected="false">Liste des posts</a>
+        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="index.php?action=createPost"
+          role="tab" aria-controls="nav-contact" aria-selected="false">Créer un post</a>
       </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
@@ -21,23 +23,29 @@
     </div>
 
     <p>Nouveau Post</p>
-   <form action="index.php?action=createInfo" method="post">
-   <div>Titre<input type="text" class="form-control" name="myTitle" id="myTitle"></div><br>
-   <textarea name="myTextarea" id="myTextarea" cols="30" rows="10">   
-   </textarea><br>
-   <button type="submit"class="btn btn-primary">Envoi</button>
-   </form>
-    
-    
-</section>
-<script src="../../node_modules/tinymce/tinymce.min.js"></script>
-<script >tinymce.init({
-  mode:'textareas', 
-  language: 'fr_FR'
-});
+    <form action="index.php?action=createPost" method="post">
+      <div class="form-group">
+        <label for="title">Titre</label>
+        <input type="text" class="form-control" name="title" id="title">
+      </div>
+      <div class="form-group">
+        <label for="content">Corps du chapitre</label>
+        <textarea name="content" id="content" cols="30" rows="10"></textarea>
+      </div>
 
-</script>
+      <button type="submit" class="btn btn-primary">Envoi</button>
+    </form>
 
-<?php $content = ob_get_clean(); ?>
 
-<?php require('adminTemplate.php'); ?>
+  </section>
+  <script src="../../node_modules/tinymce/tinymce.min.js"></script>
+  <script>
+    tinymce.init({
+      mode: 'textareas',
+      language: 'fr_FR'
+    });
+  </script>
+
+  <?php $content = ob_get_clean(); ?>
+
+  <?php require('adminTemplate.php'); ?>

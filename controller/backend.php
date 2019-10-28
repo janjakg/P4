@@ -82,10 +82,10 @@ function updatePost($idPost)
   }
 }
 
-function createPost()
+function createPost($title, $content)
 {
     $postManager = new PostManager();
-    $postAdded = $postManager->addPost();   
+    $postAdded = $postManager->addPost($title,$content);   
 
     if ($postAdded === false) {
         throw new Exception('impossible d\ajouter le post!');

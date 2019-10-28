@@ -22,12 +22,12 @@
       <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
     </div>
     
-      <div class="row"><br>
-        <h2>Liste des posts :</h2>  
+      <div class="row">
+        <h2 class="mb-5">Liste des posts :</h2>  
       </div>
       <div class="row">
-          <div class="table-responsive"><br>
-            <table class="table table-hover table-bordered"><br>
+          <div class="table-responsive">
+            <table class="table table-hover table-bordered">
               <thead>
               <th colspan="6"scope="col"><a class="btn btn-success"href="index.php?action=createPost">Create new post</a></th>
                 <tr>               
