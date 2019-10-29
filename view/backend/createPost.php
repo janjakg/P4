@@ -1,3 +1,4 @@
+
   <?php $title = "Creer un post" ?>
 
   <?php ob_start(); ?>
@@ -23,7 +24,7 @@
     </div>
 
     <p>Nouveau Post</p>
-    <form action="index.php?action=createPost" method="post">
+    <form action="index.php?action=createInfo" method="post">
       <div class="form-group">
         <label for="title">Titre</label>
         <input type="text" class="form-control" name="title" id="title">
