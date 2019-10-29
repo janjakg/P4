@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <?php $title = "Un post a été créé" ?>
 
 <?php ob_start(); ?>
