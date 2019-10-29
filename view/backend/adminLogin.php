@@ -1,3 +1,4 @@
+
 <?php $title = "Connexion"; ?>
 
 
@@ -10,9 +11,9 @@
 <form action="index.php?action=adminIndex" method="post">
 
     <div class="form-group row">
-      <label for="pseudo" class="col-sm-2 col-form-label">Pseudo :</label><br>
+      <label for="pseudo" class="col-sm-2 col-form-label">Email :</label><br>
       <div class="col-sm-10">
-        <input type="text" class="form-control"  name="pseudo" id="pseudo"placeholder="Votre pseudo">
+        <input type="email" class="form-control"  name="email" id="email"placeholder="Votre email">
       </div>
     </div>
 
@@ -24,7 +25,7 @@
     </div>
 
     <div align="center">
-      <button type="submit" class="btn btn-primary" name="formLogin">Connexion</button>
+      <button type="submit" class="btn btn-primary">Connexion</button>
     </div>
 </form>
 
