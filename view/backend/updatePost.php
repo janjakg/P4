@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <?php $title = "Post à modifier" ?>
 
 <?php ob_start(); ?>
