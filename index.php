@@ -1,3 +1,4 @@
+
 <?php
 require('controller/frontend.php');
 require('controller/backend.php');
@@ -38,16 +39,26 @@ try
                 break;
 
             case 'adminIndex' :
-                getSignaledComments();
+            if(isset($_POST['password']) && $_POST['password' ] == 'alien') {
+              if(isset($_POST['email']) && $_POST['email'] == 'jeanfor@gmail.com') {
+                if(!empty($_POST['password']) && !empty($_POST['email'])) {
+                  getSignaledComments();
+                } else {
+                  throw new Exception('tous les champs sont à remplir');
+                }
+              }else{                
+                throw new Exception('vérifiez votre email ou votre identifiant');
+                } 
+              } else {              
+                throw new Exception('vérifiez votre email ou votre identifiant');
+              }          
+            
                 break;
 
             case 'eraseComment' :
                 if(isset($_GET['idComment']) && $_GET['idComment'] > 0) {
                   eraseComment( $_GET['idComment']);
-<<<<<<< HEAD
-=======
 
->>>>>>> ecaeca1a0ebe1323be5322d10c6a84039eabd4a8
                 } else {
                   throw new Exception(' aucun identifiant de commentaire effacé');
                 }
@@ -81,80 +92,26 @@ try
                 }
                 break;
 
-<<<<<<< HEAD
-            case 'createPost' :  
-            if(isset($_POST['title']) && isset($_POST['content'])) {
-              if(!empty($_POST['title']) && !empty($_POST['content'])) {
-                createPost($_POST['title'], $_POST['content']);
-              } else{
-                echo 'test';
-              }  
-            }      
-            
-                break;
+            case 'createPost' :          
+                createPost();
+              break;
 
-            case 'sendPost' :           
-             if(isset($_GET['postId']) && $_GET['postId'] > 0) {
-               sendPost($postId);
-             } else {
-              throw new Exception('pas de post créé pour la bdd');
-            }           
-                break;
-
-            case 'updatePost' :
-                if(isset($_GET['idPost'])  && $_GET['title'] && $_GET['content']> 0) {
-                  updatePost($_GET['idPost'], $_GET['title'],$_GET['content']);
-                }else {
-                  throw new Exception('aucun identifiant de mise à jour affiché');
+            case 'sendPost' :
+              if(isset($_POST['title']) && isset($_POST['content'])) {
+              sendPost($_POST['title'], $_POST['content']);
+                } else {
+                 throw new Exception('aucun post envoyé');
                 }
                 break;
+            //à utiliser lorsque l'on mettra un module d'inscription pour les membres
+            /*case 'adminRegistration' :
+            adminRegistration($_POST['pseudo'], $_POST['email'], $_POST['password']);
+            break;*/
 
-            //case 'adminRegistration' :  
-            //if(isset($_GET['pseudo']) && isset($_POST['email']) && isset($_POST['password'])) {
-             // adminRegistration($pseudo, $email, $password);
-            //}           
-            
-              
-               
-                                 
-                  /*if(!empty($_POST['pseudo'])&& !empty($_POST['email']) && !empty($_POST['email2']) && !empty($_POST['password']) && !empty($_POST['password2']))
-                  {
-                    $pseudo = htmlspecialchars($_POST['pseudo']);
-                    $email = htmlspecialchars($_POST['email']);
-                    $email2 = htmlspecialchars($_POST['email2']);
-                    $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
-                    $password2 = password_hash($_POST['password'],PASSWORD_DEFAULT);
+            case 'adminLogin' :          
+              adminLogin();   
 
-                    $pseudolength = strlen($pseudo);
-                    if($pseudolength <= 255) 
-                    {
-                      if($email == $email2)
-                      {
-                        if($password == $password2)
-                        {
-                          echo('parfait pour l\'inscription');
-                        }
-                      }else{
-                        throw new Exception('Vos adresses email ne correspondent pas!');
-                      }                
-                    }else{
-                      throw new Exception('votre pseudo ne doit pas excéder 255 caractères!');
-                    }
-                  }else{
-                    throw new Exception ('Tous les champs doivent etre remplis');
-                  }*/
-         
-                //break;
-           
-            case 'adminLogin' :            
-             adminLogin();                     
-                break;  
-=======
-            case 'createPost' :
-              createPost();
-            break;
-
->>>>>>> ecaeca1a0ebe1323be5322d10c6a84039eabd4a8
+              break;
 
             default:
              echo 'Pas d\'action';
@@ -167,9 +124,5 @@ try
   catch (Exception $e)
   {
       die('Erreur : ' . $e->getMessage());
-<<<<<<< HEAD
-  }
-=======
   }
 
->>>>>>> ecaeca1a0ebe1323be5322d10c6a84039eabd4a8
