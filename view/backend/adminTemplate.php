@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+$_SESSION['pseudo'] = 'jean';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -24,10 +24,10 @@ session_start();
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">     
-      <a class="nav-link" href="index.php?action=adminLogin"><?= $_SESSION['pseudo'] = 'Jean'?></a>
+      <a class="nav-link" href="index.php?action=adminLogin"><?= $_SESSION['pseudo']?></a>
       </li>
       <li class="nav-item">     
-      <a class="nav-link" href="index.php?action=adminIndex">Deconnexion</a>
+      <a class="nav-link" href="index.php?action=adminLogout">Deconnexion</a>
       </li>
     </ul>
   </div>

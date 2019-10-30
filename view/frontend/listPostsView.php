@@ -1,7 +1,4 @@
-<?php
-session_start();
 
-?>
 <?php $title = "Billet simple pour l'Alaska"; ?>
 
 <?php ob_start(); ?>

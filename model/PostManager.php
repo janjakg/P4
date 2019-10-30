@@ -52,7 +52,7 @@ class PostManager extends Manager
   public function addPost()
   {
     $db = $this->dbconnect();
-    $req = $db->prepare('INSERT INTO posts( title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr) VALUES ( ? , ?, NOW())');
+    $req = $db->prepare('INSERT INTO posts( title, content) VALUES ( ? , ?)');
     $postAdded = $req;
    
     return $postAdded;
@@ -61,7 +61,7 @@ class PostManager extends Manager
   public function postSender($title,$content)
   {
     $db = $this->dbconnect();
-    $req = $db->prepare('INSERT INTO posts( title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr) VALUES ( ? , ?, NOW())');
+    $req = $db->prepare("INSERT INTO posts( title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr) VALUES (' ?' , '?', NOW())");
     $forward = $req->execute([$title,$content]);
 
     return $forward;

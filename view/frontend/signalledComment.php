@@ -1,7 +1,4 @@
-<?php
-session_start();
-
-?>  
+ 
 <?php $title = "Commentaire signalé" ?>
 
 <?php ob_start(); ?>

@@ -138,6 +138,19 @@ function adminLogin()
   }
 }
 
+function adminLogout()
+{
+  $registrationManager = new RegistrationManager();
+  $disconnect = $registrationManager->logout();
+
+
+  if($disconnect === false) {
+    throw new Exception('logout impossible!');
+  }else {
+    require('view/backend/adminLogin.php');
+  }
+}
+
 
 
 

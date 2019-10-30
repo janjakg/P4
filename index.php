@@ -92,14 +92,21 @@ try
                 }
                 break;
 
-            case 'createPost' :          
+            case 'createPost' :  
+            if(isset($_POST['title']) && isset($_POST['content']))        
+               {
                 createPost();
+               }else {
+              
+                throw new Exception('aucun post envoyé');
+               }
               break;
 
             case 'sendPost' :
               if(isset($_POST['title']) && isset($_POST['content'])) {
-              sendPost($_POST['title'], $_POST['content']);
+                sendPost($title,$content);
                 } else {
+              
                  throw new Exception('aucun post envoyé');
                 }
                 break;
@@ -109,8 +116,11 @@ try
             break;*/
 
             case 'adminLogin' :          
-              adminLogin();   
+              adminLogin();  
+              break;
 
+            case 'adminLogout' :
+              adminLogout();
               break;
 
             default:
