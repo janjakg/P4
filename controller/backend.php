@@ -1,28 +1,13 @@
 <?php
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
-<<<<<<< HEAD
 require_once('model/RegistrationManager.php');
-=======
-
-function createPost()
-{
-    $postManager = new PostManager();
-    $postAdded = $postManager->addPost();
-
-    if ($postAdded === false) {
-        throw new Exception('impossible d\ajouter le post!');
-    } else {
-      require('view/backend/createPost.php');
-    }
-}
->>>>>>> ecaeca1a0ebe1323be5322d10c6a84039eabd4a8
 
 function getSignaledComments()
 {
     $commentManager = new CommentManager();
     $signaledComments = $commentManager->getSignaledComments();
-
+   
     if ($signaledComments === false) {
         throw new Exception('aucun commentaire signalé');
     } else {
@@ -47,10 +32,6 @@ function saveComment($commentId)
 {
   $commentManager = new CommentManager();
   $updateSignaledComment = $commentManager->retainComment($commentId);
-<<<<<<< HEAD
-  
-    require('view/backend/saveComment.php'); 
-=======
 
   if($updateSignaledComment === false) {
     throw new Exception('commentaire non sauvegardé');
@@ -58,7 +39,6 @@ function saveComment($commentId)
   else {
     require('view/backend/saveComment.php');
   }
->>>>>>> ecaeca1a0ebe1323be5322d10c6a84039eabd4a8
 }
 
 function postListing()
@@ -107,17 +87,31 @@ function updatePost($idPost)
   }
 }
 
-function createPost($title, $content)
+function createPost()
 {
     $postManager = new PostManager();
-    $postAdded = $postManager->addPost($title,$content);   
+    $postAdded = $postManager->addPost();   
 
     if ($postAdded === false) {
         throw new Exception('impossible d\ajouter le post!');
     } else {
       require('view/backend/createPost.php');
     }
+    
 }
+
+function send($title,$content)
+{
+  $postManager = new PostManager();
+  $forward = $postManager->postSender($title,$content);
+
+  if ($postAdded === false) {
+    throw new Exception('impossible d\envoyer le post!');
+  } else {
+    require('view/backend/creatInfo.php');
+  }
+}
+
 
 function adminRegistration($pseudo, $email, $password)
 {
@@ -135,6 +129,7 @@ function adminLogin()
 {
   $registrationManager = new RegistrationManager();
   $log = $registrationManager->login();
+ 
 
   if($log === false) {
     throw new Exception('login impossible!');
@@ -142,6 +137,7 @@ function adminLogin()
     require('view/backend/adminLogin.php');
   }
 }
+
 
 
 
