@@ -45,20 +45,18 @@ try
                   getSignaledComments();
                 } else {
                   throw new Exception('tous les champs sont à remplir');
-                }
-              }else{                
-                throw new Exception('vérifiez votre email ou votre identifiant');
-                } 
-              } else {              
-                throw new Exception('vérifiez votre email ou votre identifiant');
-              }          
-            
-                break;
+                  }
+                    }else{                
+                      throw new Exception('vérifiez votre email ou votre identifiant');
+                      } 
+                        } else {              
+                          throw new Exception('vérifiez votre email ou votre identifiant');
+                          }         
+                          break;
 
             case 'eraseComment' :
                 if(isset($_GET['idComment']) && $_GET['idComment'] > 0) {
                   eraseComment( $_GET['idComment']);
-
                 } else {
                   throw new Exception(' aucun identifiant de commentaire effacé');
                 }
@@ -93,27 +91,19 @@ try
                 break;
 
             case 'createPost' :  
-            if(isset($_POST['title']) && isset($_POST['content']))        
-               {
-                createPost();
-               }else {
-              
-                throw new Exception('aucun post envoyé');
-               }
+   
+              createPost(); 
+                     
+                      
               break;
 
             case 'sendPost' :
               if(isset($_POST['title']) && isset($_POST['content'])) {
                 sendPost($title,$content);
-                } else {
-              
+                } else {              
                  throw new Exception('aucun post envoyé');
                 }
-                break;
-            //à utiliser lorsque l'on mettra un module d'inscription pour les membres
-            /*case 'adminRegistration' :
-            adminRegistration($_POST['pseudo'], $_POST['email'], $_POST['password']);
-            break;*/
+                break;          
 
             case 'adminLogin' :          
               adminLogin();  

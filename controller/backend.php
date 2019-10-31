@@ -132,7 +132,7 @@ function adminLogin()
  
 
   if($log === false) {
-    throw new Exception('login impossible!');
+    throw new Exception('log impossible!');    
   }else {
     require('view/backend/adminLogin.php');
   }
