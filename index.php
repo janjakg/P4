@@ -38,21 +38,9 @@ try
                 }
                 break;
 
-            case 'adminIndex' :
-            if(isset($_POST['password']) && $_POST['password' ] == 'alien') {
-              if(isset($_POST['email']) && $_POST['email'] == 'jeanfor@gmail.com') {
-                if(!empty($_POST['password']) && !empty($_POST['email'])) {
+            case 'adminIndex' :           
                   getSignaledComments();
-                } else {
-                  throw new Exception('tous les champs sont à remplir');
-                  }
-                    }else{                
-                      throw new Exception('vérifiez votre email ou votre identifiant');
-                      } 
-                        } else {              
-                          throw new Exception('vérifiez votre email ou votre identifiant');
-                          }         
-                          break;
+                    break;
 
             case 'eraseComment' :
                 if(isset($_GET['idComment']) && $_GET['idComment'] > 0) {
@@ -105,11 +93,11 @@ try
                 }
                 break;          
 
-            case 'adminLogin' :          
+            case 'adminLogin':          
               adminLogin();  
               break;
 
-            case 'adminLogout' :
+            case 'adminLogout':
               adminLogout();
               break;
 
