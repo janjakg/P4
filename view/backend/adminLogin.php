@@ -4,11 +4,11 @@
 
 <?php ob_start(); ?>
 
-<div align="center">
-<h1>CONNEXION</h1>
-</div>
 
-<form action="index.php?action=adminIndex" method="post">
+<h1 class="text-center">CONNEXION</h1>
+
+
+<form action="index.php?action=adminLogin" method="post">
 
     <div class="form-group row">
       <label for="pseudo" class="col-sm-2 col-form-label">Email :</label><br>
@@ -24,9 +24,9 @@
       </div>
     </div>
 
-    <div align="center">
+    
       <button type="submit" class="btn btn-primary">Connexion</button>
-    </div>
+    
 </form>
 
 
