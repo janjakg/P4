@@ -34,7 +34,7 @@
         <textarea name="content" id="content" cols="30" rows="10"></textarea>
       </div>
 
-      <button type="submit" class="btn btn-primary">Envoi</button>
+      <button type="submit" class="btn btn-primary" name="submit">Envoi</button>
     </form>
 
 

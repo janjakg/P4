@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['pseudo'] = 'jean';
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">

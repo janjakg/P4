@@ -3,11 +3,11 @@
 
 
 <?php ob_start(); ?>
-<br>
-<br>
+
 <div align="center">
 <h1>CONNEXION</h1>
 </div>
+
 <form action="index.php?action=adminIndex" method="post">
 
     <div class="form-group row">
