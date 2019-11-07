@@ -5,8 +5,9 @@ class RegistrationManager extends Manager
 {
   public function register($pseudo, $email, $password)
   {
-    $db = $this->dbconnect();   
-    $req = $db->prepare("INSERT INTO member(pseudo, email, password) VALUES('$pseudo', '$email', '$password')");
+    $db = $this->dbconnect(); 
+    $password = password_hash($_POST['password'],PASSWORD_DEFAULT);   
+    $req = $db->prepare("INSERT INTO member(pseudo, email, password) VALUES('?', '?', '$password')");
     $registration = $req->execute([$pseudo, $email, $password]);
 
     return $registration;
@@ -15,7 +16,7 @@ class RegistrationManager extends Manager
   public function login()
   {
     $db = $this->dbconnect(); 
-    $req = $db->prepare("SELECT email, password FROM member WHERE email= 1");
+    $req = $db->prepare("SELECT email, password FROM member WHERE email= '?'");
     $log = $req->execute();
 
     return $log;
