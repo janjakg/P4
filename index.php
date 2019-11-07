@@ -1,4 +1,3 @@
-
 <?php
 require('controller/frontend.php');
 require('controller/backend.php');
@@ -38,26 +37,42 @@ try
                 }
                 break;
 
-            case 'adminIndex' :           
+            case 'adminIndex':           
                   getSignaledComments();
                     break;
 
-            case 'eraseComment' :
-                if(isset($_GET['idComment']) && $_GET['idComment'] > 0) {
+            case 'eraseComment':
+                if (isset($_GET['idComment']) && $_GET['idComment'] > 0) {
                   eraseComment( $_GET['idComment']);
                 } else {
                   throw new Exception(' aucun identifiant de commentaire effacé');
                 }
                  break;
 
-            case 'saveComment' :
-                if(isset($_GET['commentId']) && $_GET['commentId'] > 0) {
+            case 'saveComment':
+                if (isset($_GET['commentId']) && $_GET['commentId'] > 0) {
                   saveComment($_GET['commentId']);
                 } else {
                   throw new Exception('aucun identifiant de commentaire sauvegardé');
                 }
                 break;
 
+            case 'updatePost':         
+                if (isset($_GET['title']) && isset($_GET['content'])){
+                  updatePost($_GET['title'], $_GET['content']);
+                } else {
+                  throw new Exception('aucun identifiant de update ');
+                }               
+                break;
+
+            case 'postUpdated':
+               if(isset($_POST['content'])) {
+                  postUpdated($_POST['content']);
+                } else {
+                  throw new Exception('aucun post updated');
+                }             
+                break;
+            
             case 'adminCrud' :
                 postListing();
                 break;
@@ -78,31 +93,47 @@ try
                 }
                 break;
 
-            case 'createPost' :  
-   
-              createPost(); 
-                     
-                      
-              break;
+            case 'createPost' :    
+               // if (isset($_POST['title']) && isset($_POST['content'])){     
+                    createPost($_POST['title'], $_POST['content']); 
+                /*}else {
+                      throw new Exception('aucun identifiant de creation de post ');
+                } */                   
+                break;
 
             case 'sendPost' :
-              if(isset($_POST['title']) && isset($_POST['content'])) {
-                sendPost($title,$content);
-                } else {              
-                 throw new Exception('aucun post envoyé');
-                }
-                break;          
+                if(isset($_POST['submit'])) {
+                  if(isset($_POST['title']) && isset($_POST['content'])) {
+                    sendPost($title,$content);
+                    } else {              
+                    throw new Exception('aucun post envoyé');
+                    }
+                }           
+                break; 
+                
+            /*case 'adminRegistration':                         
+                adminRegistration($pseudo,$email,$password);
+                break;*/
 
-            case 'adminLogin':          
-              adminLogin();  
-              break;
+            case 'adminLogin':                          
+                adminLogin();                 
+                break;
+
+            case 'checkUser':
+                if (!empty($_POST['email']) && !empty($_POST['password'])) {
+                  checkUser($_POST['email'], $_POST['password']);
+                } else {
+                  echo 'vous devez remplir tous les champs!';
+                }
+              
+                break;
 
             case 'adminLogout':
-              adminLogout();
-              break;
+                adminLogout();
+                break;
 
             default:
-             echo 'Pas d\'action';
+                echo 'Pas d\'action';
                 break;            
         }
     } else {
@@ -113,4 +144,3 @@ try
   {
       die('Erreur : ' . $e->getMessage());
   }
-
