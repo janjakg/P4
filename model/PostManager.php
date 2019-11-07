@@ -40,31 +40,40 @@ class PostManager extends Manager
     return $displayPost;
   }
 
-  public function setUpdate($idPost, $title, $content)
+  public function setUpdate( $title, $content)
   {
     $db = $this->dbconnect();
-    $req = $db->prepare('UPDATE posts SET id = ?, title = ?, content = ? WHERE posts.id = ?');
-    $saveUpdate = $req->execute(array($idPost, $title, $content));
+    $req = $db->prepare("UPDATE posts SET title = '?', content = '?' WHERE posts.id ='?'");
+    $saveUpdate = $req->execute([$title, $content]);
 
     return $saveUpdate;
   } 
-  
-  public function addPost()
+
+  public function modifyPost($content)
   {
     $db = $this->dbconnect();
-    $req = $db->prepare('INSERT INTO posts( title, content) VALUES ( ? , ?)');
-    $postAdded = $req;
+    $req = $db->prepare("UPDATE posts SET content = '$content' WHERE posts.id = '?' ");
+    $postModified = $req->execute($content);
+
+    return $postModified;
+  }
+  
+  public function addPost($title, $content)
+  {
+    $db = $this->dbconnect();
+    $req = $db->prepare("INSERT INTO posts( title, content) VALUES ('?','?' )");
+    $postAdded = $req->execute([$title, $content]);
    
     return $postAdded;
   }
 
-  public function postSender($title,$content)
+  /*public function postSender($title,$content)
   {
     $db = $this->dbconnect();
     $req = $db->prepare("INSERT INTO posts( title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr) VALUES (' ?' , '?', NOW())");
     $forward = $req->execute([$title,$content]);
 
     return $forward;
-  }
+  }*/
   
 }
