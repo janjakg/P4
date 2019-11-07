@@ -10,9 +10,14 @@ class LoginManager extends Manager
     $req->execute([$email]);
     $member = $req->fetch(PDO::FETCH_OBJ);
     
-    if($member !==NULL) {
-      (password_verify)
+    if($member){
+      echo 'verif password';
+    } else {
+      echo 'user inexistant';
     }
     
+      
+   
   }
 }
+
