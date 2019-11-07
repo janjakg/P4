@@ -8,7 +8,7 @@
 <h1 class="text-center">CONNEXION</h1>
 
 
-<form action="index.php?action=adminLogin" method="post">
+<form action="index.php?action=checkUser" method="post">
 
     <div class="form-group row">
       <label for="pseudo" class="col-sm-2 col-form-label">Email :</label><br>
