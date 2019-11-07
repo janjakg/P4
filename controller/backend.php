@@ -2,6 +2,7 @@
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 require_once('model/RegistrationManager.php');
+require_once('model/LoginManager.php');
 
 function getSignaledComments()
 {
@@ -74,10 +75,10 @@ function readPost($postId)
   }
 }
 
-function updatePost($idPost)
+function updatePost($title, $content)
 {
   $postManager =  new PostManager();
-  $saveUpdate = $postManager->setUpdate($idPost);
+  $saveUpdate = $postManager->setUpdate($title, $content);
 
   if($saveUpdate === false) {
     throw new Exception('post non mis à jour');
@@ -87,10 +88,23 @@ function updatePost($idPost)
   }
 }
 
-function createPost()
+function postUpdated($content)
+{
+  $postManager = new PostManager();
+  $postModified = $postManager->modifyPost($content);
+
+  if($postModified === false) {
+    throw new exception('post no modifié');
+  }
+  else {
+    require('view/backend/postUpdated.php');
+  }
+}
+
+function createPost($title, $content)
 {
     $postManager = new PostManager();
-    $postAdded = $postManager->addPost();   
+    $postAdded = $postManager->addPost($title, $content);   
 
     if ($postAdded === false) {
         throw new Exception('impossible d\ajouter le post!');
@@ -127,15 +141,25 @@ function adminRegistration($pseudo, $email, $password)
 
 function adminLogin()
 {
-  $registrationManager = new RegistrationManager();
-  $log = $registrationManager->login();
- 
+     
+    require('view/backend/adminLogin.php');  
+}
 
-  if($log === false) {
-    throw new Exception('log impossible!');    
-  }else {
-    require('view/backend/adminLogin.php');
+function checkUser($email,$password)
+{
+  $loginManager = new LoginManager();
+  $checkAdmin = $loginManager->login($email,$password);
+
+  if ($email === 'jeanfor@gmail.com' && $password === 'alien') {
+    echo ' utilisateur ok';
+    $commentManager = new CommentManager();
+    $signaledComments = $commentManager->getSignaledComments();
+
+    require('view/backend/adminIndex.php');
+  } else {
+    require('view/backend/adminLogin.php'); 
   }
+
 }
 
 function adminLogout()
