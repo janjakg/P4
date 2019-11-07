@@ -1,7 +1,4 @@
-<?php
-session_start();
 
-?>
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -23,11 +20,11 @@ session_start();
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">     
+    <!-- <li class="nav-item">     
       <a class="nav-link" href="index.php?action=adminLogin">Login</a>
-      </li>
+      </li> -->
       <li class="nav-item">     
-      <a class="nav-link" href="index.php?action=adminLogout">Deconnexion</a>
+      <a class="nav-link" href="index.php?action=adminLogin">Deconnexion</a>
       </li>
     </ul>
   </div>
