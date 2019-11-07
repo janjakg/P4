@@ -23,7 +23,8 @@
       <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
     </div>
 
-    <p>Nouveau Post</p>
+    <h2>Nouveau Post</h2>
+    <a href="index.php?action=adminCrud">Retour à la liste des posts</a>
     <form action="index.php?action=createInfo" method="post">
       <div class="form-group">
         <label for="title">Titre</label>
