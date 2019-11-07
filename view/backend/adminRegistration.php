@@ -1,7 +1,4 @@
-<?php
-session_start();
 
-?>
 <?php $title = "Inscription"; ?>
 
 
@@ -11,7 +8,7 @@ session_start();
 <br>
 <div align="center">
     <h1>INSCRIPTION</h1></div>
-    <form action="index.php?action=adminLogin" method="post">
+    <form action="index.php?action=adminIndex" method="post">
       <p>
         <fieldset>          
           <div class="form-group row">
