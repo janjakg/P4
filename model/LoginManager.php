@@ -8,16 +8,26 @@ class LoginManager extends Manager
     $db = $this->dbconnect(); 
     $req = $db->prepare("SELECT * FROM member WHERE email= ?");
     $req->execute([$email]);
-    $member = $req->fetch(PDO::FETCH_OBJ);
-    
-    if($member){
-      echo 'verif password';
-    } else {
-      echo 'user inexistant';
-    }
-    
+    $member = $req->fetch();
+    $isPasswordCorrect = password_verify($_POST['password'], $member['password']);
+
+    if(!$member){
+      echo 'Mauvais identifiant ou mot d passe';
+    } else
+     {
+     if($isPasswordCorrect) {
+       session_start();
+      // $_SESSION['id'] = $member['id'];
+//$_SESSION['pseudo'] = $pseudo;
+       echo'Vous etes connecté!';
+     }
+     else{
+      echo 'Mauvais identifiant ou mot d passe!';
       
-   
+     }
+    }  
+       
   }
+
 }
 
