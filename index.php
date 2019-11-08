@@ -111,9 +111,17 @@ try
                 }           
                 break; 
                 
-            /*case 'adminRegistration':                         
-                adminRegistration($pseudo,$email,$password);
-                break;*/
+            case 'adminRegistration':                                     
+                adminRegistration();
+                break;
+
+            case 'checkRegistration':
+              if (!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['email2']) && !empty($_POST['password']) && !empty($_POST['password2'])) {
+                checkRegistration($_POST['pseudo'], $_POST['email'],!empty($_POST['email2']), $_POST['password'],!empty($_POST['password2']));
+              }else {
+                echo 'vous devez vraiment remplir tous les champs!';
+              }
+            break;
 
             case 'adminLogin':                          
                 adminLogin();                 
