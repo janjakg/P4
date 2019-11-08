@@ -24,7 +24,7 @@
       <a class="nav-link"></a>
       </li>
       <li class="nav-item">     
-      <a class="nav-link" href="index.php?action=adminLogin">Login</a>
+      <a class="nav-link" href="index.php?action=adminRegistration">Login</a>
       </li>
       
     </ul>
