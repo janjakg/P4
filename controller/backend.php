@@ -119,7 +119,7 @@ function send($title,$content)
   $postManager = new PostManager();
   $forward = $postManager->postSender($title,$content);
 
-  if ($postAdded === false) {
+  if ($forward === false) {
     throw new Exception('impossible d\envoyer le post!');
   } else {
     require('view/backend/creatInfo.php');
@@ -127,21 +127,27 @@ function send($title,$content)
 }
 
 
-function adminRegistration($pseudo, $email, $password)
-{
-    $registrationManager = new RegistrationManager();
-    $registration = $registrationManager->register($pseudo, $email, $password);     
-    
-    if ($registration === false) {
-      throw new Exception('inscription impossible!');
-  } else {
+function adminRegistration()
+{      
     require('view/backend/adminRegistration.php');
+}
+
+function checkRegistration($pseudo, $email, $email2, $password, $password2)
+{
+  $registrationManager = new RegistrationManager();
+  $registration = $registrationManager->register($pseudo, $email, $email2, $password, $password2);
+
+  if($email == $email2 && $password == $password2) {
+    echo'inscription réussie';
+    require('view/backend/adminLogin.php'); 
+  }else {
+    throw new exception('Merci de revoir vos mots de passe ou emails');
   }
+             
 }
 
 function adminLogin()
-{
-     
+{   
     require('view/backend/adminLogin.php');  
 }
 
@@ -151,7 +157,7 @@ function checkUser($email,$password)
   $checkAdmin = $loginManager->login($email,$password);
 
   if ($email === 'jeanfor@gmail.com' && $password === 'alien') {
-    echo ' utilisateur ok';
+    //echo ' utilisateur ok';
     $commentManager = new CommentManager();
     $signaledComments = $commentManager->getSignaledComments();
 
@@ -174,9 +180,3 @@ function adminLogout()
     require('view/backend/adminLogin.php');
   }
 }
-
-
-
-
-
-
