@@ -58,22 +58,22 @@ class PostManager extends Manager
     return $postModified;
   }
   
-  public function addPost($title, $content)
+  public function addPost()
   {
     $db = $this->dbconnect();
     $req = $db->prepare("INSERT INTO posts( title, content) VALUES ('?','?' )");
-    $postAdded = $req->execute([$title, $content]);
+    $postAdded = $req->execute();
    
     return $postAdded;
   }
 
-  /*public function postSender($title,$content)
+  public function postSender($title,$content)
   {
     $db = $this->dbconnect();
-    $req = $db->prepare("INSERT INTO posts( title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr) VALUES (' ?' , '?', NOW())");
+    $req = $db->prepare("INSERT INTO posts( title, content) VALUES ('$title', '$content')");
     $forward = $req->execute([$title,$content]);
 
     return $forward;
-  }*/
+  }
   
 }
