@@ -95,19 +95,18 @@ try
 
             case 'createPost' :    
                // if (isset($_POST['title']) && isset($_POST['content'])){     
-                    createPost($_POST['title'], $_POST['content']); 
+                    createPost(); 
                 /*}else {
                       throw new Exception('aucun identifiant de creation de post ');
                 } */                   
                 break;
 
             case 'sendPost' :
-                if(isset($_POST['submit'])) {
-                  if(isset($_POST['title']) && isset($_POST['content'])) {
-                    sendPost($title,$content);
+                if(!empty($_POST['title']) && !empty($_POST['content'])) {
+                  sendPost($_POST['title'],$_POST['content']);
                     } else {              
-                    throw new Exception('aucun post envoyé');
-                    }
+                    throw new Exception('Merci de créez votre poste');
+                    
                 }           
                 break; 
                 
