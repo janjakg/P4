@@ -7,7 +7,7 @@
 <br>
 
 <h1 class="text-center">INSCRIPTION</h1>
-</div>
+
 <form action="index.php?action=checkRegistration" method="post">
   <p>
     <fieldset>
