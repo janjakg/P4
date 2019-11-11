@@ -11,8 +11,20 @@ class LoginManager extends Manager
     $member = $req->fetch();
     $isPasswordCorrect = password_verify($_POST['password'], $member['password']);
 
-    if(!$member){
-      echo 'Mauvais identifiant ou mot d passe';
+   /* if($member>0) 
+    {
+
+if(password_verify($password,$member[0]))
+{
+  echo'connexion ok';
+}
+    }
+    else
+    {
+      echo 'Mauvais identifiant ou mot de passe, merci de revoir!';
+    }*/
+    /*if(!$member){
+      echo 'Mauvais identifiant ou mot de passe';
     } else
      {
      if($isPasswordCorrect) {
@@ -22,12 +34,11 @@ class LoginManager extends Manager
        echo'Vous etes connecté!';
      }
      else{
-      echo 'Mauvais identifiant ou mot d passe!';
+      echo 'Mauvais identif ou mot d passe!';
       
      }
-    }  
+    } */ 
        
   }
 
 }
-
