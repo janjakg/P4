@@ -44,7 +44,7 @@
         </div>
       </div>
 
-      <button type="submit" class="btn btn-primary" name="formInscription">Valider</button>
+      <button type="submit" class="btn btn-primary" >Valider</button>
     </fieldset>
   </p>
 </form>
