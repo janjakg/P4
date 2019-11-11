@@ -9,7 +9,7 @@
   <h2>Post à modifier</h2>
   <a href="index.php?action=adminCrud">Retour à la liste des posts</a>
 
-  <form action="index.php?action=postUpdated.php" method="post">
+  <form action="index.php?action=postUpdated" method="post">
     <div class="form-group">
       <textarea name="update" id="update" cols="30" rows="10"><?=$_GET['content'] ?></textarea>
     </div>
