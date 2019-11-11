@@ -101,10 +101,10 @@ function postUpdated($content)
   }
 }
 
-function createPost($title, $content)
+function createPost()
 {
     $postManager = new PostManager();
-    $postAdded = $postManager->addPost($title, $content);   
+    $postAdded = $postManager->addPost();   
 
     if ($postAdded === false) {
         throw new Exception('impossible d\ajouter le post!');
@@ -114,7 +114,7 @@ function createPost($title, $content)
     
 }
 
-function send($title,$content)
+function sendPost($title,$content)
 {
   $postManager = new PostManager();
   $forward = $postManager->postSender($title,$content);
@@ -122,7 +122,7 @@ function send($title,$content)
   if ($forward === false) {
     throw new Exception('impossible d\envoyer le post!');
   } else {
-    require('view/backend/creatInfo.php');
+    require('view/backend/createInfo.php');
   }
 }
 
