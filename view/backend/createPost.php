@@ -25,7 +25,7 @@
 
     <h2>Nouveau Post</h2>
     <a href="index.php?action=adminCrud">Retour à la liste des posts</a>
-    <form action="index.php?action=createInfo" method="post">
+    <form action="index.php?action=sendPost" method="post">
       <div class="form-group">
         <label for="title">Titre</label>
         <input type="text" class="form-control" name="title" id="title">
