@@ -156,15 +156,16 @@ function checkUser($email,$password)
   $loginManager = new LoginManager();
   $checkAdmin = $loginManager->login($email,$password);
 
-  if ($email === 'jeanfor@gmail.com' && $password === 'alien') {
-    //echo ' utilisateur ok';
+  /*if ($email === $_POST['email'] && $password === $_POST['password']) {
+   // echo ' user ok';
     $commentManager = new CommentManager();
     $signaledComments = $commentManager->getSignaledComments();
 
     require('view/backend/adminIndex.php');
   } else {
+    echo ' user not ok';
     require('view/backend/adminLogin.php'); 
-  }
+  }*/
 
 }
 
