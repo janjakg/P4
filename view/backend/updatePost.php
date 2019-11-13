@@ -10,6 +10,10 @@
   <a href="index.php?action=adminCrud">Retour à la liste des posts</a>
 
   <form action="index.php?action=postUpdated" method="post">
+  <div class="form-group">
+        <label for="title">Titre</label>
+        <input type="text" class="form-control" name="title" id="title" value="<?=$_GET['title'] ?>">
+      </div>
     <div class="form-group">
       <textarea name="update" id="update" cols="30" rows="10"><?=$_GET['content'] ?></textarea>
     </div>
