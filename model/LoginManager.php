@@ -1,4 +1,7 @@
 <?php
+session_start();
+$_SESSION['email'];
+
 require_once('model/Manager.php');
 
 class LoginManager extends Manager
