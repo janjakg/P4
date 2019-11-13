@@ -1,5 +1,5 @@
-<?php $title = "Inscription"; ?>
 
+<?php $title = "Inscription"; ?>
 
 <?php ob_start(); ?>
 
@@ -7,6 +7,7 @@
 <br>
 
 <h1 class="text-center">INSCRIPTION</h1>
+<p class="text-center"><a href="index.php?action=adminLogin" >Si vous êtes déja inscrit connectez vous</a></p>
 
 <form action="index.php?action=checkRegistration" method="post">
   <p>
