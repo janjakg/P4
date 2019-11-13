@@ -66,8 +66,8 @@ try
                 break;
 
             case 'postUpdated':
-               if(isset($_POST['content'])) {
-                  postUpdated($_POST['content']);
+              if(!empty($_POST['content'])) {
+                postUpdated(addslashes(strip_tags($_POST['content'])));              
                 } else {
                   throw new Exception('aucun post updated');
                 }             
@@ -93,20 +93,15 @@ try
                 }
                 break;
 
-            case 'createPost' :    
-               // if (isset($_POST['title']) && isset($_POST['content'])){     
-                    createPost(); 
-                /*}else {
-                      throw new Exception('aucun identifiant de creation de post ');
-                } */                   
+            case 'createPost' :                   
+                  createPost();                                  
                 break;
 
             case 'sendPost' :
                 if(!empty($_POST['title']) && !empty($_POST['content'])) {
-                  sendPost($_POST['title'],$_POST['content']);
+                  sendPost(addslashes(strip_tags($_POST['title'])),addslashes(strip_tags($_POST['content'])));
                     } else {              
-                    throw new Exception('Merci de créez votre poste');
-                    
+                    throw new Exception('Merci de créez votre poste');                    
                 }           
                 break; 
                 
@@ -115,12 +110,12 @@ try
                 break;
 
             case 'checkRegistration':
-              if (!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['email2']) && !empty($_POST['password']) && !empty($_POST['password2'])) {
-                checkRegistration($_POST['pseudo'], $_POST['email'],!empty($_POST['email2']), $_POST['password'],!empty($_POST['password2']));
-              }else {
-                echo 'vous devez vraiment remplir tous les champs!';
-              }
-            break;
+                if (!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['email2']) && !empty($_POST['password']) && !empty($_POST['password2'])) {
+                  checkRegistration($_POST['pseudo'], $_POST['email'],!empty($_POST['email2']), $_POST['password'],!empty($_POST['password2']));
+                }else {
+                  echo 'vous devez vraiment remplir tous les champs!';
+                }
+                break;
 
             case 'adminLogin':                          
                 adminLogin();                 
@@ -131,8 +126,7 @@ try
                   checkUser($_POST['email'], $_POST['password']);
                 } else {
                   echo 'vous devez remplir tous les champs!';
-                }
-              
+                }              
                 break;
 
             case 'adminLogout':
