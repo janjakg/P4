@@ -2,7 +2,9 @@
 
 <?php ob_start(); ?>
 <div class="headline">
-  <h1>Billet simple pour l'Alaska</h1>
+  <div class="shadow-none m-5 pb-5 bg-light">
+    <h1>Billet simple pour l'Alaska</h1>
+  </div>
 </div>
 
 <section class="shadow-lg p-3 mb-5 bg-white rounded">
@@ -10,10 +12,10 @@
   <a href="index.php?action=adminCrud">Retour à la liste des posts</a>
 
   <form action="index.php?action=postUpdated" method="post">
-  <div class="form-group">
-        <label for="title">Titre</label>
-        <input type="text" class="form-control" name="title" id="title" value="<?=$_GET['title'] ?>">
-      </div>
+    <div class="form-group">
+      <label for="title">Titre</label>
+      <input type="text" class="form-control" name="title" id="title" value="<?=$_GET['title'] ?>">
+    </div>
     <div class="form-group">
       <textarea name="update" id="update" cols="30" rows="10"><?=$_GET['content'] ?></textarea>
     </div>
