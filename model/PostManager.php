@@ -53,7 +53,7 @@ class PostManager extends Manager
   {
     $db = $this->dbconnect();
     $req = $db->prepare("UPDATE posts SET content = '$content' WHERE posts.id = '?' ");
-    $postModified = $req->execute($content);
+    $postModified = $req->execute([$content]);
 
     return $postModified;
   }
@@ -62,7 +62,7 @@ class PostManager extends Manager
   {
     $db = $this->dbconnect();
     $req = $db->prepare("INSERT INTO posts( title, content) VALUES ('?','?' )");
-    $postAdded = $req->execute();
+    $postAdded = $req;
    
     return $postAdded;
   }
