@@ -1,32 +1,22 @@
-
 <?php $title = "Billet simple pour l'Alaska"; ?>
 
 <?php ob_start(); ?>
 <div class="headline">
-<h1>Billet simple pour l'Alaska</h1>
+<div class="shadow-none m-5 pb-5 bg-light"><h1>Billet simple pour l'Alaska</h1></div>
 </div>
-
-
-
-
 
 <?php while ($data = $posts->fetch()):?>
 
+<div class="news">
+  <div class="shadow p-3 mb-5 bg-white rounded">
+    <h3>
+      <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>"><?= htmlspecialchars($data['title']) ?></a></em>
+    </h3>
 
-    <div class="news">
-    <div class="shadow p-3 mb-5 bg-white rounded">
-        <h3>
-        <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>"><?= htmlspecialchars($data['title']) ?></a></em>
-            
-        </h3>
-        
-        <p>
-            <?= nl2br(htmlspecialchars(substr($data['content'],0,200))) ?>...
-            <br />            
-        </p>
-        <p>le <?= nl2br(htmlspecialchars($data['creation_date_fr'])) ?></p>
-        </div>
-    </div>
+    <p><?= nl2br(htmlspecialchars(substr($data['content'],0,200))) ?>...</p>
+    <p>le <?= nl2br(htmlspecialchars($data['creation_date_fr'])) ?></p>
+  </div>
+</div>
 
 <?php endwhile;?>
 
