@@ -65,9 +65,9 @@ try
                 }               
                 break;
 
-            case 'postUpdated':
-              if(!empty($_POST['content'])) {
-                postUpdated(addslashes(strip_tags($_POST['content'])));              
+            case 'postUpdated':            
+              if(isset($_GET['idPost']) && !empty($_POST['content']) && !empty($_POST['title'])) {
+                postUpdated($_GET['idPost'],addslashes(strip_tags($_POST['title'])), addslashes(strip_tags($_POST['content'])));              
                 } else {
                   throw new Exception('aucun post updated');
                 }             
