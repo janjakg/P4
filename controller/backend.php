@@ -88,10 +88,10 @@ function updatePost($title, $content)
   }
 }
 
-function postUpdated($content)
+function postUpdated($idPost, $title, $content)
 {
   $postManager = new PostManager();
-  $postModified = $postManager->modifyPost($content);
+  $postModified = $postManager->modifyPost($idPost, $title, $content);
 
   if($postModified === false) {
     throw new exception('post non modifié');
