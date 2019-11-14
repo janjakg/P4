@@ -1,6 +1,5 @@
 <?php
 session_start();
-$_SESSION['email'];
 
 require_once('model/Manager.php');
 
@@ -21,9 +20,7 @@ class LoginManager extends Manager
         {
           if($isPasswordCorrect)
           {
-        /* session_start();
-          $_SESSION['id'] = $member['id'];
-          $_SESSION['email'] = $email;*/
+       
           $_SESSION['email'] = $email;
           echo 'Vous êtes connecté !';
           getSignaledComments();      
