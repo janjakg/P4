@@ -17,7 +17,8 @@
       <input type="text" class="form-control" name="title" id="title" value="<?=$_GET['title'] ?>">
     </div>
     <div class="form-group">
-      <textarea name="update" id="update" cols="30" rows="10"><?=$_GET['content'] ?></textarea>
+    <label for="content">Contenu</label>
+      <textarea name="content" id="content" cols="30" rows="10"><?=$_GET['content'] ?></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Modifier</button>
   </form>
