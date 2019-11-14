@@ -49,11 +49,17 @@ class PostManager extends Manager
     return $saveUpdate;
   } 
 
-  public function modifyPost($content)
+  public function modifyPost($idPost, $title, $content)
   {
-    $db = $this->dbconnect();
-    $req = $db->prepare("UPDATE posts SET content = '$content' WHERE posts.id = '?' ");
-    $postModified = $req->execute([$content]);
+    $db = $this->dbconnect();    
+   // $req = $db->prepare("UPDATE posts SET title = '$title' ,content = '$content' WHERE posts.id = '$idPost' ");
+//$postModified = $req->execute([$_GET['idPost'], $_POST['title'], $_POST['content']]);
+    $req = $db->prepare('UPDATE posts SET title = :title, content = :content WHERE id = :idPost');
+    $postModified = $req->execute([
+      'id' => $id,
+      'title' => $title,
+      'content' => $content,
+    ]);
 
     return $postModified;
   }
