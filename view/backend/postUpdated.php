@@ -6,7 +6,7 @@
 </div>
 
 <section class="shadow-lg p-3 mb-5 bg-white rounded">
-  <p>Ce post a bien été supprimé. Merci</p>
+  <p>Ce post a bien été mis à jour. Merci</p>
   <a href="index.php?action=adminCrud">Retour à la liste des posts</a>
 </section>
 
