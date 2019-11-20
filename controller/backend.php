@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 require_once('model/RegistrationManager.php');
@@ -49,10 +51,10 @@ function postListing()
   require('view/backend/adminCrud.php');
 }
 
-function erasePost($idPost)
+function erasePost($idComment, $idPost)
 {
   $postManager = new PostManager();
-  $destroyPost = $postManager->deletePost($idPost);
+  $destroyPost = $postManager->deletePost($omment, $idPost);
 
   if($destroyPost === false) {
     throw new Exception('post non supprimé');
@@ -75,10 +77,10 @@ function readPost($postId)
   }
 }
 
-function updatePost($title, $content)
+function updatePost()
 {
   $postManager =  new PostManager();
-  $saveUpdate = $postManager->setUpdate($title, $content);
+  $saveUpdate = $postManager->setUpdate();
 
   if($saveUpdate === false) {
     throw new Exception('post non mis à jour');
@@ -97,7 +99,7 @@ function postUpdated($idPost, $title, $content)
     throw new exception('post non modifié');
   }
   else {
-    require('view/backend/postUpdated.php');
+    require('view/backend/createInfo.php');
   }
 }
 
@@ -109,7 +111,9 @@ function createPost()
     if ($postAdded === false) {
         throw new Exception('impossible d\ajouter le post!');
     } else {
-      require('view/backend/createPost.php');
+      require('view/backend/createPost.php'); 
+      //echo 'Salut '. $_SESSION['pseudo'] . ' comment va !';      
+      
     }
     
 }
@@ -148,25 +152,44 @@ function checkRegistration($pseudo, $email, $email2, $password, $password2)
 
 function adminLogin()
 {   
+  if(isset($_SESSION['pseudo']) && isset($_SESSION['password'])) {
+    require('view/backend/adminIndex.php');  
+  } else {
     require('view/backend/adminLogin.php');  
+  }  
 }
 
 function checkUser($email,$password)
 {
   $loginManager = new LoginManager();
-  $checkAdmin = $loginManager->login($email,$password);
+  $member = $loginManager->login($email,$password);
+  $isPasswordCorrect = password_verify($_POST['password'], $member['password']); 
 
-}
+  if(!$member) {  
+    echo 'Mauvais identifiant ou mot de passe';
+    require('view/backend/adminLogin.php'); 
+    } else 
+      {
+        if($isPasswordCorrect)
+      { 
+        //session_start();
+        $_SESSION['pseudo'] = $member['pseudo'];     
+        $_SESSION['email'] = $member['email'];
+        echo 'Bonjour '. $_SESSION['pseudo'] . ' vous êtes connecté !';
+        getSignaledComments();  
+        exit();
+          } else 
+            {
+            echo 'Mauvais identifiant ou mot de passe !'; 
+            require('view/backend/adminLogin.php');            
+            }     
+ }
 
-function adminLogout()
-{
-  $registrationManager = new RegistrationManager();
-  $disconnect = $registrationManager->logout();
+  function adminLogout()
+  {
+    $registrationManager = new RegistrationManager();
+    $disconnect = $registrationManager->logout();
 
-
-  if($disconnect === false) {
-    throw new Exception('logout impossible!');
-  }else {
-    require('view/backend/adminLogin.php');
+    header('Location: index.php?action=adminLogout'); 
   }
 }
