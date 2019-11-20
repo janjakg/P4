@@ -1,8 +1,9 @@
 
-<?php $title = "Connexion"; ?>
+<?php $title = "Connexion";?>
 
+<?php ob_start();?>
 
-<?php ob_start(); ?>
+<?php echo''.$_SESSION['pseudo'].''; ?>
 
 <div class="shadow-none m-5 pb-5 bg-light"><h1 class="text-center">CONNEXION</h1></div>
 
