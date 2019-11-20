@@ -1,6 +1,10 @@
-<?php $title = "Billet simple pour l'Alaska"; ?>
+<?php 
 
-<?php ob_start(); ?>
+$title = "Billet simple pour l'Alaska"; 
+?>
+
+<?php ob_start();?>
+<?php echo''.$_SESSION['pseudo'].''; ?>
 <div class="headline">
 <div class="shadow-none m-5 pb-5 bg-light"><h1>Billet simple pour l'Alaska</h1></div>
 </div>
