@@ -14,20 +14,11 @@ class RegistrationManager extends Manager
     return $registration;
   }
 
-  /*public function login()
-  {
-    $db = $this->dbconnect(); 
-    $req = $db->prepare("SELECT email, password FROM member WHERE email= '?'");
-    $log = $req->execute();
-
-    return $log;
-  }*/
-
   public function logout()
   {
     $db = $this->dbconnect();
     $req = $db->prepare("UPDATE member SET email = '?', password ='?' WHERE email= '?'");   
-    $disconnect = $req->execute();
+    $disconnect = $req;
 
     return $disconnect;
   }
