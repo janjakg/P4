@@ -1,4 +1,5 @@
 <?php
+
 require('controller/frontend.php');
 require('controller/backend.php');
 try
@@ -50,6 +51,7 @@ try
                  break;
 
             case 'saveComment':
+              //Nous sauvegardons le commentaire
                 if (isset($_GET['commentId']) && $_GET['commentId'] > 0) {
                   saveComment($_GET['commentId']);
                 } else {
@@ -58,14 +60,13 @@ try
                 break;
 
             case 'updatePost':         
-                if (isset($_GET['title']) && isset($_GET['content'])){
-                  updatePost($_GET['title'], $_GET['content']);
-                } else {
-                  throw new Exception('aucun identifiant de update ');
-                }               
+              //Ce cas nous amène sur la page updatePost
+                  updatePost();
+                          
                 break;
 
-            case 'postUpdated':            
+            case 'postUpdated':
+              //Nous procédons ici à la mise à jour            
               if(isset($_GET['idPost']) && !empty($_POST['content']) && !empty($_POST['title'])) {
                 postUpdated($_GET['idPost'],addslashes(strip_tags($_POST['title'])), addslashes(strip_tags($_POST['content'])));              
                 } else {
@@ -78,8 +79,10 @@ try
                 break;
 
             case 'erasePost' :
-                if(isset($_GET['idPost']) && $_GET['idPost'] > 0) {
-                  erasePost($_GET['idPost']);
+                if(isset($_GET['idPost']) && isset($_GET['idComment']) && $_GET['idPost'] > 0 ) {
+                  erasePost($_GET['idPost'], $_GET['idComment']); 
+                 // eraseComment( $_GET['idComment']);
+
                 } else {
                   throw new Exception('aucun identifiant de post supprimé');
                 }
@@ -93,11 +96,14 @@ try
                 }
                 break;
 
-            case 'createPost' :                   
-                  createPost();                                  
+            case 'createPost' : 
+              //Nous accédons à la page de création de post                  
+                  createPost();
+                                                   
                 break;
 
             case 'sendPost' :
+              //Nous envoyons le post
                 if(!empty($_POST['title']) && !empty($_POST['content'])) {
                   sendPost(addslashes(strip_tags($_POST['title'])),addslashes(strip_tags($_POST['content'])));
                     } else {              
@@ -105,11 +111,13 @@ try
                 }           
                 break; 
                 
-            case 'adminRegistration':                                     
+            case 'adminRegistration': 
+              //page pour pouvoir s'inscrire si nous activons la fonctionnalité                                
                 adminRegistration();
                 break;
 
             case 'checkRegistration':
+              //Pour valider l'incription
                 if (!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['email2']) && !empty($_POST['password']) && !empty($_POST['password2'])) {
                   checkRegistration($_POST['pseudo'], $_POST['email'],!empty($_POST['email2']), $_POST['password'],!empty($_POST['password2']));
                 }else {
@@ -117,20 +125,37 @@ try
                 }
                 break;
 
-            case 'adminLogin':                          
-                adminLogin();                 
+            case 'adminLogin':
+              //Avec cette condition si la session est commencée il ne sera pas nécessaire que le script nous amène sur la page de login  
+              if(isset($_SESSION['pseudo'])) {
+                  header('Location:index.php?action=adminIndex');
+              } else {
+                adminLogin();
+              }    
                 break;
 
             case 'checkUser':
+              //Vérification du login
                 if (!empty($_POST['email']) && !empty($_POST['password'])) {
                   checkUser($_POST['email'], $_POST['password']);
                 } else {
                   echo 'vous devez remplir tous les champs!';
+                  require('view/backend/adminLogin.php'); 
                 }              
                 break;
 
-            case 'adminLogout':
-                adminLogout();
+            case 'adminLogout':  
+              //session_start() ; 
+              if(isset($_SESSION['pseudo']))  {
+                $_SESSION = array();
+                session_destroy();
+                echo'session terminée';                 
+               // header('Location: index.php?action=adminLogout');  
+                             
+               
+              }  else {
+                throw new exception('logout non fonctionnel');
+              }                                           
                 break;
 
             default:
