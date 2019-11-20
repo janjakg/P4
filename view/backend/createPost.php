@@ -1,6 +1,10 @@
+
 <?php $title = "Creer un post" ?>
 
-<?php ob_start(); ?>
+<?php ob_start();?>
+
+<?php echo ''.$_SESSION['pseudo'].'';?>
+
 <div class="headline">
   <div class="shadow-none m-5 pb-5 bg-light">
     <h1>Billet simple pour l'Alaska</h1>
@@ -24,7 +28,7 @@
     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
   </div>
 
-  <h2>Nouveau Post</h2>
+  <h2>Nouveau Post</h2> 
   <a href="index.php?action=adminCrud">Retour à la liste des posts</a>
   <form action="index.php?action=sendPost" method="post">
     <div class="form-group">
