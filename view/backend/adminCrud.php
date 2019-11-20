@@ -1,7 +1,11 @@
+
  <?php $title = "Liste des commentaires " ?>
 
  <?php ob_start(); ?>
+ <?php echo ''. $_SESSION['pseudo'].'';?>
+ 
  <div class="headline">
+
    <div class="shadow-none m-5 pb-5 bg-light">
      <h1>Billet simple pour l'Alaska</h1>
    </div>
@@ -27,7 +31,7 @@
      </div>
 
      <div class="row">
-       <h2 class="mb-5">Liste des posts :</h2>
+       <h2 class="mb-5">Liste des posts : </h2>
      </div>
      <div class="row">
        <div class="table-responsive">
