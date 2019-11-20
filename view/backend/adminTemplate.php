@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -27,7 +29,7 @@
       <a class="nav-link" href="index.php?action=adminLogin">Login</a>
       </li> -->
           <li class="nav-item">
-            <a class="nav-link" href="index.php?action=adminLogin">Deconnexion</a>
+            <a class="nav-link" href="index.php?action=adminLogout">Deconnexion</a>
           </li>
         </ul>
       </div>
