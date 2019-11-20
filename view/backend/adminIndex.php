@@ -1,6 +1,9 @@
+
 <?php $title = "Liste des commentaires signalés" ?>
 
-<?php ob_start(); ?>
+<?php ob_start();?>
+<?php echo''.$_SESSION['pseudo'].''; ?>
+
 <div class="headline">
   <div class="shadow-none m-5 pb-5 bg-light">
     <h1>Billet simple pour l'Alaska</h1>
@@ -26,7 +29,7 @@
       <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
     </div>
 
-    <div class="row"><br>
+    <div class="row"><br>  
       <h2>Liste des commentaires signalés :</h2>
     </div>
     <div class="row">
