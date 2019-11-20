@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -23,13 +24,13 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.php?action=adminLogin">Connexion</a>
+        <!-- l'élément li suivant sera utile si on veut mettre en place l'élément INSCRIPTION -->
+        <li class="nav-item">
+            <a class="nav-link" href="index.php?action=adminRegistration"></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.php?action=adminRegistration">Inscripion</a>
-          </li>
-
+            <a class="nav-link" href="index.php?action=adminLogin">Admin</a>            
+          </li>       
         </ul>
       </div>
     </nav>
