@@ -21,11 +21,11 @@ class PostManager extends Manager
     return $post;
   }
 
-  public function deletePost($idPost)
+  public function deletePost($idComment, $idPost)
   {
     $db = $this->dbconnect();
-    $req = $db->prepare('DELETE FROM posts WHERE posts.id = ? ');
-    $destroyPost = $req->execute(array($idPost));
+    $req = $db->prepare('DELETE FROM comments WHERE comment = ?, post_id = ?');
+    $destroyPost = $req->execute(array($idComment, $idPost));
 
     return $destroyPost;
   }
@@ -40,11 +40,11 @@ class PostManager extends Manager
     return $displayPost;
   }
 
-  public function setUpdate( $title, $content)
+  public function setUpdate()
   {
     $db = $this->dbconnect();
     $req = $db->prepare("UPDATE posts SET title = '?', content = '?' WHERE posts.id ='?'");
-    $saveUpdate = $req->execute([$title, $content]);
+    $saveUpdate = $req->execute();
 
     return $saveUpdate;
   } 
