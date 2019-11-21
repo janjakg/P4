@@ -8,7 +8,12 @@
 </div>
 
 <section class="shadow-lg p-3 mb-5 bg-white rounded">
+<?php if (isset($_GET['idPost'])): ?>
+  <p>Un post a bien été modifié. Merci</p>
+<?php else: ?>
   <p>Un post a bien été créé. Merci</p>
+<?php endif; ?>
+
   <a href="index.php?action=createPost">Retour à l'écriture de post</a>
 </section>
 
