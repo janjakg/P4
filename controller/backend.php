@@ -54,7 +54,7 @@ function postListing()
 function erasePost($idComment, $idPost)
 {
   $postManager = new PostManager();
-  $destroyPost = $postManager->deletePost($omment, $idPost);
+  $destroyPost = $postManager->deletePost($idComment, $idPost);
 
   if($destroyPost === false) {
     throw new Exception('post non supprimé');
@@ -64,10 +64,10 @@ function erasePost($idComment, $idPost)
   }
 }
 
-function readPost($postId)
+function readPost($id)
 {
   $postManager = new PostManager();
-  $displayPost = $postManager->editPost($postId);
+  $displayPost = $postManager->getPost($id);
 
   if($displayPost === false) {
     throw new Exception('post non affiché');
@@ -77,20 +77,33 @@ function readPost($postId)
   }
 }
 
-function updatePost()
+function editPost($id)
 {
-  $postManager =  new PostManager();
-  $saveUpdate = $postManager->setUpdate();
+  $postManager = new PostManager();
+  $post = $postManager->getPost($id);
 
-  if($saveUpdate === false) {
-    throw new Exception('post non mis à jour');
+  if($post === false) {
+    throw new exception('post inexistant');
   }
-  else {
-    require('view/backend/updatePost.php');
+  else{
+    require('view/backend/editPost.php');
   }
 }
 
-function postUpdated($idPost, $title, $content)
+function updatePost($id, $title, $content)
+{
+  $postManager =  new PostManager();
+  $postModified = $postManager->updatePost($id, $title, $content);
+
+  if($postModified === false) {
+    throw new Exception('post non modifié');
+  }
+  else {
+    require('view/backend/createInfo.php');
+  }
+}
+
+/*function postUpdated($idPost, $title, $content)
 {
   $postManager = new PostManager();
   $postModified = $postManager->modifyPost($idPost, $title, $content);
@@ -101,7 +114,7 @@ function postUpdated($idPost, $title, $content)
   else {
     require('view/backend/createInfo.php');
   }
-}
+}*/
 
 function createPost()
 {
