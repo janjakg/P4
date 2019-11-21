@@ -47,7 +47,7 @@
                         <a href="index.php?action=signalledComment&amp;idComment=<?= $comment['id'] ?>&amp;idPost=<?= $_GET['id'] ?>"
                            class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Signaler</a>
                     <?php else: ?>
-                        <button type="button" class="btn btn-secondary"><em>commentaire signalé</em></button>
+                        <button class="btn btn-secondary"><em>commentaire signalé</em></button>                      
                     <?php endif; ?>
                 </div>
             </div>
