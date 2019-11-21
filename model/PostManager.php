@@ -11,11 +11,11 @@ class PostManager extends Manager
     return $req;
   }
 
-  public function getPost($postId)
+  public function getPost(int $id)
   {
     $db = $this-> dbConnect();
     $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr FROM posts WHERE id = ?');
-    $req->execute(array($postId));
+    $req->execute([$id]);
     $post = $req->fetch();
 
     return $post;
@@ -24,13 +24,13 @@ class PostManager extends Manager
   public function deletePost($idComment, $idPost)
   {
     $db = $this->dbconnect();
-    $req = $db->prepare('DELETE FROM comments WHERE comment = ?, post_id = ?');
+    $req = $db->prepare('DELETE comments, posts FROM comments, posts WHERE comments.post_id = ? AND posts.id = ?');
     $destroyPost = $req->execute(array($idComment, $idPost));
 
     return $destroyPost;
   }
 
-  public function editPost($postId)
+ /* public function editPost($postId)
   {
     $db = $this->dbconnect();
     $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr FROM posts WHERE id = ?');
@@ -47,21 +47,22 @@ class PostManager extends Manager
     $saveUpdate = $req->execute();
 
     return $saveUpdate;
-  } 
+  } */
 
-  public function modifyPost($idPost, $title, $content)
+  public function updatePost($id, $title, $content)
   {
     $db = $this->dbconnect();    
    // $req = $db->prepare("UPDATE posts SET title = '$title' ,content = '$content' WHERE posts.id = '$idPost' ");
 //$postModified = $req->execute([$_GET['idPost'], $_POST['title'], $_POST['content']]);
-    $req = $db->prepare('UPDATE posts SET title = :title, content = :content WHERE id = :idPost');
-    $postModified = $req->execute([
-      'id' => $idPost,
+    $req = $db->prepare('UPDATE posts SET title = :title, content = :content WHERE id = :id');
+    
+    $postModified = $req->execute([      
       'title' => $title,
       'content' => $content,
+      'id' => $id,
     ]);
 
-    return $postModified;
+   // return $postModified;
   }
   
   public function addPost()
