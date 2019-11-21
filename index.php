@@ -59,18 +59,16 @@ try
                 }
                 break;
 
-            case 'updatePost':         
-              //Ce cas nous amène sur la page updatePost
-                  updatePost();
-                          
-                break;
-
-            case 'postUpdated':
+            case 'editPost':
+                editPost($_GET['idPost']);
+                break;                  
+              
+            case 'updatePost':
               //Nous procédons ici à la mise à jour            
-              if(isset($_GET['idPost']) && !empty($_POST['content']) && !empty($_POST['title'])) {
-                postUpdated($_GET['idPost'],addslashes(strip_tags($_POST['title'])), addslashes(strip_tags($_POST['content'])));              
+              if(!empty($_POST['content']) && !empty($_POST['title'])) {
+                    updatePost($_GET['idPost'],addslashes(strip_tags($_POST['title'])), addslashes(strip_tags($_POST['content'])));              
                 } else {
-                  throw new Exception('aucun post updated');
+                    throw new Exception('Aucun post updated');
                 }             
                 break;
             
@@ -79,7 +77,7 @@ try
                 break;
 
             case 'erasePost' :
-                if(isset($_GET['idPost']) && isset($_GET['idComment']) && $_GET['idPost'] > 0 ) {
+                if(isset($_GET['idPost']) && isset($_GET['idComment']) && $_GET['idPost'] > 0) {
                   erasePost($_GET['idPost'], $_GET['idComment']); 
                  // eraseComment( $_GET['idComment']);
 
@@ -92,7 +90,7 @@ try
                 if(isset($_GET['postId']) && $_GET['postId'] > 0) {
                   readPost($_GET['postId']);
                 } else {
-                  throw new Exception('aucun identifiant de lecture affiché');
+                  throw new Exception('aucun identifiant d\'article renseigné');
                 }
                 break;
 
@@ -150,7 +148,7 @@ try
                 $_SESSION = array();
                 session_destroy();
                 echo'session terminée';                 
-               // header('Location: index.php?action=adminLogout');  
+                header('Location: index.php?action=adminLogin');  
                              
                
               }  else {
