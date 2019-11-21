@@ -7,7 +7,7 @@
 </div>
 
 <section class="shadow-lg p-3 mb-5 bg-white rounded">
-    <p>Votre commentaire a bien été signalé. Merci</p>
+    <p>Le commentaire a bien été signalé. Merci</p>
     <a href="index.php?action=post&amp;id=<?= $_GET['idPost']?>">Retour à l'article</a>
 </section>
 
