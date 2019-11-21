@@ -29,7 +29,11 @@
       <a class="nav-link" href="index.php?action=adminLogin">Login</a>
       </li> -->
           <li class="nav-item">
-            <a class="nav-link" href="index.php?action=adminLogout">Deconnexion</a>
+          <?php if (isset($_SESSION['pseudo'])): ?>          
+            <a class="nav-link" href="index.php?action=adminLogout">Déconnexion</a>
+          <?php else: ?>
+            <a class="nav-link" href="index.php?action=adminLogout">Connexion</a>
+          <?php endif; ?>
           </li>
         </ul>
       </div>
