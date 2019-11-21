@@ -13,12 +13,12 @@
 
   <section class="shadow-lg p-3 mb-5 bg-white rounded">
     <p>
-      <strong><?= nl2br(strtoupper($displayPost['title'])) ?></strong>
+      <strong><?= (strtoupper($displayPost['title'])) ?></strong>
       <br />
     </p>
 
     <p>
-      <?= nl2br(htmlspecialchars($displayPost['content'])) ?>
+      <?= ($displayPost['content']) ?>
       <br />
     </p>
 
