@@ -56,7 +56,7 @@ class PostManager extends Manager
 //$postModified = $req->execute([$_GET['idPost'], $_POST['title'], $_POST['content']]);
     $req = $db->prepare('UPDATE posts SET title = :title, content = :content WHERE id = :idPost');
     $postModified = $req->execute([
-      'id' => $id,
+      'id' => $idPost,
       'title' => $title,
       'content' => $content,
     ]);
