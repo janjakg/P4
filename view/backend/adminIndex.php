@@ -2,7 +2,13 @@
 <?php $title = "Liste des commentaires signalés" ?>
 
 <?php ob_start();?>
-<?php echo''.$_SESSION['pseudo'].''; ?>
+
+<?php if (isset($_SESSION['pseudo'])) :?>
+  <div><?php echo ''. $_SESSION['pseudo'].'';?></div>
+ <?php else :?>
+ <p> </p>
+ <?php endif;?>
+
 
 <div class="headline">
   <div class="shadow-none m-5 pb-5 bg-light">
