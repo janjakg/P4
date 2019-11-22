@@ -187,9 +187,9 @@ function checkUser($email,$password)
       { 
         //session_start();
         $_SESSION['pseudo'] = $member['pseudo'];     
-        $_SESSION['email'] = $member['email'];
+        $_SESSION['email'] = $member['email'];       
+        getSignaledComments();
         echo 'Bonjour '. $_SESSION['pseudo'] . ' vous êtes connecté !';
-        getSignaledComments();  
         exit();
           } else 
             {
