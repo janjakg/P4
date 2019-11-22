@@ -32,7 +32,7 @@
           <?php if (isset($_SESSION['pseudo'])): ?>          
             <a class="nav-link" href="index.php?action=adminLogout">Déconnexion</a>
           <?php else: ?>
-            <a class="nav-link" href="index.php?action=adminLogout">Connexion</a>
+            <a class="nav-link" href="index.php?action=adminLogin">Connexion</a>
           <?php endif; ?>
           </li>
         </ul>
