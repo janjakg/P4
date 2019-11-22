@@ -2,7 +2,12 @@
  <?php $title = "Liste des commentaires " ?>
 
  <?php ob_start(); ?>
- <?php echo ''. $_SESSION['pseudo'].'';?>
+ <?php if (isset($_SESSION['pseudo'])) :?>
+  <div><?php echo ''. $_SESSION['pseudo'].'';?></div>
+ <?php else :?>
+ <p> </p>
+ <?php endif;?>
+
  
  <div class="headline">
 
