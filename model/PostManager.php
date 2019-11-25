@@ -30,30 +30,9 @@ class PostManager extends Manager
     return $destroyPost;
   }
 
- /* public function editPost($postId)
-  {
-    $db = $this->dbconnect();
-    $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr FROM posts WHERE id = ?');
-    $req->execute(array($postId));
-    $displayPost = $req->fetch();
-
-    return $displayPost;
-  }
-
-  public function setUpdate()
-  {
-    $db = $this->dbconnect();
-    $req = $db->prepare("UPDATE posts SET title = '?', content = '?' WHERE posts.id ='?'");
-    $saveUpdate = $req->execute();
-
-    return $saveUpdate;
-  } */
-
   public function updatePost($id, $title, $content)
   {
     $db = $this->dbconnect();    
-   // $req = $db->prepare("UPDATE posts SET title = '$title' ,content = '$content' WHERE posts.id = '$idPost' ");
-//$postModified = $req->execute([$_GET['idPost'], $_POST['title'], $_POST['content']]);
     $req = $db->prepare('UPDATE posts SET title = :title, content = :content WHERE id = :id');
     
     $postModified = $req->execute([      
@@ -61,8 +40,6 @@ class PostManager extends Manager
       'content' => $content,
       'id' => $id,
     ]);
-
-   // return $postModified;
   }
   
   public function addPost()
@@ -81,6 +58,5 @@ class PostManager extends Manager
     $forward = $req->execute([$title,$content]);
 
     return $forward;
-  }
-  
+  }  
 }

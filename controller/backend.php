@@ -103,19 +103,6 @@ function updatePost($id, $title, $content)
   }
 }
 
-/*function postUpdated($idPost, $title, $content)
-{
-  $postManager = new PostManager();
-  $postModified = $postManager->modifyPost($idPost, $title, $content);
-
-  if($postModified === false) {
-    throw new exception('post non modifié');
-  }
-  else {
-    require('view/backend/createInfo.php');
-  }
-}*/
-
 function createPost()
 {
     $postManager = new PostManager();
@@ -125,8 +112,6 @@ function createPost()
         throw new Exception('impossible d\ajouter le post!');
     } else {
       require('view/backend/createPost.php'); 
-      //echo 'Salut '. $_SESSION['pseudo'] . ' comment va !';      
-      
     }
     
 }
@@ -143,7 +128,6 @@ function sendPost($title,$content)
   }
 }
 
-
 function adminRegistration()
 {      
     require('view/backend/adminRegistration.php');
@@ -159,8 +143,7 @@ function checkRegistration($pseudo, $email, $email2, $password, $password2)
     require('view/backend/adminLogin.php'); 
   }else {
     throw new exception('Merci de revoir vos mots de passe ou emails');
-  }
-             
+  }             
 }
 
 function adminLogin()
@@ -185,12 +168,10 @@ function checkUser($email,$password)
       {
         if($isPasswordCorrect)
       { 
-        //session_start();
         $_SESSION['pseudo'] = $member['pseudo'];     
         $_SESSION['email'] = $member['email'];       
         getSignaledComments();
-        echo 'Bonjour '. $_SESSION['pseudo'] . ' vous êtes connecté !';
-        exit();
+      
           } else 
             {
             echo 'Mauvais identifiant ou mot de passe !'; 

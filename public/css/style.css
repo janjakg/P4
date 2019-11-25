@@ -1,12 +1,17 @@
-.headline {
-    text-align: center;
+/*.banner {
+    background-image: url('/public/images/boreal.jpg');
+    height: 450px;
+}*/
+
+.background {
+    background-color: azure;
 }
 
-#date {
-    text-align: right;
-}
-
-.connexion {
+footer {
+    display: flex;
+    justify-content: center;
     text-align: center;
-    color: blueviolet;
+    align-items: flex-end;
+    background-color: rgb(214, 214, 194);
+    padding: 25px;
 }

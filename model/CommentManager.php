@@ -26,13 +26,13 @@ class CommentManager extends Manager
       return $updateComment;
   }
 
-
   public function getSignaledComments()
   {
       $db = $this->dbConnect();
-      $signaledComments = $db->query('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, signalled FROM comments WHERE signalled = 1');
+      $signaledComments = $db->query('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, signalled FROM comments WHERE signalled = 1 ORDER BY comment_date DESC');
       return $signaledComments;
   }
+
   public function deleteComment($idComment)
   {
     $db = $this->dbConnect();
@@ -40,6 +40,7 @@ class CommentManager extends Manager
     $destroyComment = $req->execute([$idComment]);
     return $destroyComment;
   }
+  
   public function retainComment($commentId)
   {
     $db = $this->dbConnect();

@@ -3,7 +3,8 @@
 
 <?php ob_start();?>
 
-<div class="shadow-none m-5 pb-5 bg-light"><h1 class="text-center">CONNEXION</h1></div>
+<img src="public/images/avatar.png" alt="avatar" class="img-thumbnail">
+<div class="shadow-none m-5 pb-5 bg-light"><h1 >CONNEXION</h1></div>
 
 <form action="index.php?action=checkUser" method="post">
 
