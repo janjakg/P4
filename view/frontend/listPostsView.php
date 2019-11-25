@@ -7,8 +7,8 @@ $title = "Billet simple pour l'Alaska";
 
 <div class="banner">
   
-  <h1 class="text-center">Billet simple pour l'Alaska</h1>
-
+  <div class="titre"><h1 class=" m-5 pb-5">Billet simple pour l'Alaska</h1></p></div>
+  <img src="public/images/boreal" class="img-fluid" alt="Responsive image">
 </div>
 
 <?php while ($data = $posts->fetch()):?>
