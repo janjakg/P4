@@ -3,22 +3,15 @@
 
 <?php ob_start(); ?>
 
-<?php if (isset($_SESSION['pseudo'])) :?>
-  <div><?php echo ''. $_SESSION['pseudo'].'';?></div>
- <?php else :?>
- <p> </p>
- <?php endif;?>
- 
-<div class="headline">
-<div class="shadow-none m-5 pb-5 bg-light"><h1>Billet simple pour l'Alaska</h1></div>
-</div>
-
+<div class="shadow-none m-5 pb-5 bg-light"><h1 class="text-center">Billet simple pour l'Alaska</h1></div>
 
 <section class="news">
+
     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-        <h2><?= htmlspecialchars($post['title']) ?></h2>
+
+        <h2><?= strip_tags(stripslashes($post['title'])) ?></h2>
         <p>
-            <?= nl2br(htmlspecialchars($post['content'])) ?>
+            <?= strip_tags(stripslashes($post['content'])) ?>
         </p>
         <div id="date">
             <em>le <?= $post['creation_date_fr'] ?></em>
