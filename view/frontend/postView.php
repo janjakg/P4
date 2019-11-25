@@ -3,8 +3,8 @@
 
 <?php ob_start(); ?>
 
-<div class="shadow-none m-5 pb-5 bg-light"><h1 class="text-center">Billet simple pour l'Alaska</h1></div>
-
+<div class="shadow-none m-5 pb-5 bg-light"><div class="titre2"><h1 class="text-center">Billet simple pour l'Alaska</h1></div></div>
+<div class="text-center m-5 pb-5"><img src="public/images/alaska3" class="img-fluid" alt="Responsive image"></div>
 <section class="news">
 
     <div class="shadow-lg p-3 mb-5 bg-white rounded">
