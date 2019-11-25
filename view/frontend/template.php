@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/fa6a9c271b.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
 </head>
 
 <body class="background">
@@ -45,11 +46,11 @@
   </div>
 
   <div class="container">
-  <img src="public/images/boreal" class="img-fluid" alt="Responsive image">
+  
     <?= $content ?>
   </div>
   <footer>
-    Site réalisé par Jean-Jacques dans le cadre de la formation OpenClassrooms. 2019
+    Site réalisé par Jean-Jacques GOMIS dans le cadre de la formation OpenClassrooms. 2019
   </footer>
   <script src="public/js/signal.js"></script>
 </body>
