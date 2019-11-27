@@ -2,6 +2,16 @@
     background-color: azure;
 }
 
+.background2 {
+    margin: 0;
+    padding: 0;
+    background: url('/public/images/alaska8.jpg') no-repeat center fixed;
+    -webkit-background-size: cover;
+    /* pour anciens Chrome et Safari */
+    background-size: cover;
+    /* version standardisée */
+}
+
 .titre {
     position: absolute;
     color: azure;
@@ -18,10 +28,9 @@
 }
 
 footer {
-    display: flex;
     justify-content: center;
     text-align: center;
-    align-items: flex-end;
     background-color: #d7eaf8;
     padding: 25px;
+    bottom: 0;
 }
