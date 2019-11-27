@@ -41,3 +41,8 @@ function signalledComment($commentId)
     }
 }
 
+function homepage()
+{
+  require('view/frontend/homepage.php');
+}
+
