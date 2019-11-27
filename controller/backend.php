@@ -177,13 +177,13 @@ function checkUser($email,$password)
             echo 'Mauvais identifiant ou mot de passe !'; 
             require('view/backend/adminLogin.php');            
             }     
- }
-
-  function adminLogout()
-  {
-    $registrationManager = new RegistrationManager();
-    $disconnect = $registrationManager->logout();
-
-    header('Location: index.php?action=adminLogout'); 
   }
+}
+
+function adminLogout()
+{
+  $registrationManager = new RegistrationManager();
+  $disconnect = $registrationManager->logout();
+
+  header('Location: index.php?action=adminLogout'); 
 }
