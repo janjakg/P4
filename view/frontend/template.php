@@ -38,6 +38,12 @@
             <a class="nav-link" href="index.php?action=adminRegistration"></a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="index.php?action=homepage"> Homepage</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"> Blog</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="index.php?action=adminLogin"><i class="fas fa-user-lock"></i> Admin</a>
           </li>
         </ul>
@@ -49,9 +55,11 @@
   
     <?= $content ?>
   </div>
+  
   <footer>
     Site réalisé par Jean-Jacques GOMIS dans le cadre de la formation OpenClassrooms. 2019
   </footer>
+     
   <script src="public/js/signal.js"></script>
 </body>
 
