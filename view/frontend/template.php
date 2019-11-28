@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
 </head>
 
-<body class="background">
+<body class="background2">
 
   <div class="sticky-top">
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
@@ -38,10 +38,10 @@
             <a class="nav-link" href="index.php?action=adminRegistration"></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.php?action=homepage"> Homepage</a>
+            <a class="nav-link" href="index.php?action=about"> A propos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"> Blog</a>
+            <a class="nav-link" href="index.php?action=listPosts">Blog</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="index.php?action=adminLogin"><i class="fas fa-user-lock"></i> Admin</a>
@@ -52,14 +52,17 @@
   </div>
 
   <div class="container">
-  
-    <?= $content ?>
+    <div class="page">
+      <?= $content ?>
+    </div>
   </div>
-  
+
   <footer>
-    Site réalisé par Jean-Jacques GOMIS dans le cadre de la formation OpenClassrooms. 2019
+    <div class="container">
+      Site réalisé par Jean-Jacques GOMIS dans le cadre de la formation OpenClassrooms. 2019
+    </div>
   </footer>
-     
+
   <script src="public/js/signal.js"></script>
 </body>
 
