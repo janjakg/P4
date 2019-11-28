@@ -39,10 +39,10 @@
             <a class="nav-link" href="index.php?action=adminRegistration"></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.php?action=homepage"> Homepage</a>
+            <a class="nav-link" href="index.php?action=about"> A propos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"> Blog</a>
+            <a class="nav-link" href="index.php?action=listPosts"> Blog</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="index.php?action=adminLogin"><i class="fas fa-user-lock"></i> Admin</a>
@@ -53,18 +53,31 @@
   </div>
 
   <div class="container-fluid">
-   <h1 class="paysage">A propos de JEAN FORTEROCHE</h1>
-   <p><img src="public/images/writer" alt="photo_ecrivain"></p>
-<p></p>  
-  
+    <div class="page">
+      <h1 class="middle">Billet simple pour l'Alaska</h1>
+
+      <div class="welcomeText">
+        <p class="text-center"><strong>Bienvenue sur le site officiel du nouveau livre de Jean FORTEROCHE.</strong></p>
+      </div>
+      <div class="text-center">
+        <a href="index.php?action=about" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Jean
+          Forteroche</a>
+        <a href="index.php?action=listPosts" class="btn btn-secondary btn-lg active" role="button"
+          aria-pressed="true">Derniers chapitres</a>
+      </div>
+    </div>
   </div>
+
+  <footer>
+    <div class="container">
+      Site réalisé par Jean-Jacques GOMIS dans le cadre de la formation OpenClassrooms. 2019
+    </div>
+  </footer>
 
   <script src="public/js/signal.js"></script>
 </body>
 
-<footer>
-    Site réalisé par Jean-Jacques GOMIS dans le cadre de la formation OpenClassrooms. 2019
-  </footer>
-  
+
+
 
 </html>
