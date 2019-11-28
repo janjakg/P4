@@ -2,6 +2,16 @@
 
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
+
+function homepage()
+{
+  require('view/frontend/homepage.php');
+}
+
+function about()
+{
+  require('view/frontend/about.php');
+}
 function listPosts()
 {
     $postManager = new PostManager();
@@ -41,8 +51,4 @@ function signalledComment($commentId)
     }
 }
 
-function homepage()
-{
-  require('view/frontend/homepage.php');
-}
 
