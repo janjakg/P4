@@ -6,9 +6,17 @@ try
 {
     if (isset($_GET['action'])) {
         switch ($_GET['action'])  {
+            case 'homepage':
+              homepage();
+              break;
+
             case 'listPosts':
-                listPosts();
-                break;
+              listPosts();
+              break;  
+              
+            case'about':
+              about();
+              break;
 
             case 'post':
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -16,11 +24,7 @@ try
                 } else {
                     echo 'Erreur : aucun identifiant de billet envoyé';
                 }
-                break;
-
-            case 'homepage':
-                homepage();
-                break;    
+                break;              
 
             case 'addComment':
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -165,7 +169,7 @@ try
                 break;            
         }
     } else {
-        listPosts();
+        homepage();
     }
   }
   catch (Exception $e)
