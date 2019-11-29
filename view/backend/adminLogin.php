@@ -25,8 +25,9 @@
     </div>
   </div>
 
-
+<div id="index.php?action=adminLogin">
   <button type="submit" class="btn btn-primary">Connexion</button>
+  </div>
 
 </form>
 
