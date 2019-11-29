@@ -3,7 +3,9 @@
 <?php ob_start(); ?>
 
 <div class="shadow-none m-5 pb-5 bg-light">
-  <div class="titre2"><h1 class="text-center">Billet simple pour l'Alaska</h1></div>
+  <div class="titre2">
+    <h1 class="text-center">Billet simple pour l'Alaska</h1>
+  </div>
 </div>
 
 <section class="shadow-lg p-3 mb-5 bg-white rounded">
@@ -35,11 +37,9 @@
             <th colspan="6" scope="col"><a class="btn btn-success" href="index.php?action=createPost">Create new
                 post</a></th>
             <tr>
-
               <th scope="col">Chapitre</th>
-              <th scope="col">Titre</th>
+              <th scope="col">Extrait</th>
               <th scope="col">Post</th>
-
               <th colspan="3" scope="col">Action</th>
             </tr>
           </thead>
