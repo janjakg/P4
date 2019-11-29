@@ -16,15 +16,15 @@
 <body class="background">
 
   <div class="sticky-top">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-   
-    <?php if (isset($_SESSION['pseudo'])) :?>
-    <span class="badge badge-pill badge-success">connecté </span>
-    <?php else :?>
- <p> </p>
- <?php endif;?> 
-   
- <a class="navbar-brand" href="index.php"><strong><em>Jean FORTEROCHE</em></strong></a>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+
+      <?php if (isset($_SESSION['pseudo'])) :?>
+      <span class="badge badge-pill badge-success">connecté </span>
+      <?php else :?>
+      <p> </p>
+      <?php endif;?>
+
+      <a class="navbar-brand" href="index.php"><strong><em>Jean FORTEROCHE</em></strong></a>
       <a class="navbar-brand" href="index.php"><i class="fas fa-home"></i>Accueil</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,13 +48,13 @@
     </nav>
   </div>
   <div class="container">
-  <div class="text-center">
-    <img src="public/images/town" alt="town"></div>
- 
+    <div class="text-center">
+      <img src="public/images/town" class="img-fluid" alt="Responsive image"></div>
+
     <?= $content ?>
-  </div> 
+  </div>
   <footer>
-  Site réalisé par Jean-Jacques dans le cadre de la formation OpenClassrooms. 2019 
+    Site réalisé par Jean-Jacques dans le cadre de la formation OpenClassrooms. 2019
   </footer>
   <script src="public/js/signal.js"></script>
 </body>
