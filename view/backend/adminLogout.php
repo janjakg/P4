@@ -9,12 +9,10 @@
   <p>Vous êtes maintenat déconnecté !</p>
   <a href="index.php?action=adminLogin">CONNEXION</a>
 </section>
-<section class="shadow-lg p-3 mb-5 bg-white rounded">  
+<section class="shadow-lg p-3 mb-5 bg-white rounded">
   <a href="index.php?action=listPosts">HOMEPAGE</a>
 </section>
 
 <?php $content = ob_get_clean(); ?>
 
 <?php require('adminTemplate.php'); ?>
-
-
