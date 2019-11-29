@@ -9,7 +9,9 @@
 
  <section class="shadow-lg p-3 mb-5 bg-white rounded">
    <div class="media">
-     <img class="jeanPic" src="public/images/writer" class="align-self-start mr-3" alt="writer">
+     <div class="jeanPic">
+       <img src="public/images/writer" class="align-self-start mr-3" alt="writer">
+     </div>
      <div class="media-body">
        <h5 class="mt-0">
          <div class="author"> Jean FORTEROCHE</div>
@@ -58,7 +60,9 @@
        <p>Sa rencontre avec ses animaux qui peuvent s'avérer aussi doux qu'éffrayants sont à l'origine de l'écriture de
          ce roman qui ne manque pas de rebondissements. Les fans de la première heure ne seront pas déçus.</p>
      </div>
-     <img class="jeanPic" src="public/images/wolf2" class="ml-3" alt="loup">
+     <div class="jeanPic">
+       <img src="public/images/wolf2" class="ml-3" alt="loup">
+     </div>
    </div>
  </section>
 
