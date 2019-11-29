@@ -1,11 +1,12 @@
-
 <?php $title = "Liste des commentaires signalés" ?>
 
 <?php ob_start();?>
 
-  <div class="shadow-none m-5 pb-5 bg-light">
-    <div class="titre2"><h1 class="text-center">Billet simple pour l'Alaska</h1></div>
+<div class="shadow-none m-5 pb-5 bg-light">
+  <div class="titre2">
+    <h1 class="text-center">Billet simple pour l'Alaska</h1>
   </div>
+</div>
 
 <section class="shadow-lg p-3 mb-5 bg-white rounded">
   <div class="container"><br>
@@ -26,11 +27,11 @@
       <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
     </div>
 
-    <div class="row"><br>  
+    <div class="row"><br>
       <h2>Liste des commentaires signalés :</h2>
     </div>
     <div class="row">
-      <div class="table-responsive"><br>
+      <div class="table-responsive-md"><br>
         <table class="table table-hover table-bordered"><br>
           <thead>
             <tr>
