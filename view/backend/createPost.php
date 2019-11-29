@@ -1,21 +1,22 @@
-
 <?php $title = "Creer un post" ?>
 
 <?php ob_start();?>
 
-  <div class="shadow-none m-5 pb-5 bg-light">
-    <div class="titre2"><h1 class="text-center">Billet simple pour l'Alaska</h1></div>
+<div class="shadow-none m-5 pb-5 bg-light">
+  <div class="titre2">
+    <h1 class="text-center">Billet simple pour l'Alaska</h1>
   </div>
+</div>
 
 <section class="shadow-lg p-3 mb-5 bg-white rounded">
   <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-      <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="index.php?action=adminIndex"
-        role="tab" aria-controls="nav-home" aria-selected="true">Liste des commentaires signalés</a>
+      <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="index.php?action=adminIndex" role="tab"
+        aria-controls="nav-home" aria-selected="true">Liste des commentaires signalés</a>
       <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="index.php?action=adminCrud" role="tab"
         aria-controls="nav-profile" aria-selected="false">Liste des posts</a>
-      <a class="nav-item nav-link active" id="nav-contact-tab" data-toggle="tab" href="index.php?action=createPost" role="tab"
-        aria-controls="nav-contact" aria-selected="false">Créer un post</a>
+      <a class="nav-item nav-link active" id="nav-contact-tab" data-toggle="tab" href="index.php?action=createPost"
+        role="tab" aria-controls="nav-contact" aria-selected="false">Créer un post</a>
     </div>
   </nav>
   <div class="tab-content" id="nav-tabContent">
@@ -24,7 +25,7 @@
     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
   </div>
 
-  <h2>Nouveau Post</h2> 
+  <h2>Nouveau Post</h2>
   <a href="index.php?action=adminCrud">Retour à la liste des posts</a>
   <form action="index.php?action=sendPost" method="post">
     <div class="form-group">
