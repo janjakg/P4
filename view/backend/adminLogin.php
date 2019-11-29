@@ -9,7 +9,7 @@
   <h1>CONNEXION</h1>
 </div>
 
-<form action="index.php?action=checkUser" method="post">
+<form action="index.php?action=checkUser" class="shadow-none m-5" method="post">
 
   <div class="form-group row">
     <label for="pseudo" class="col-sm-2 col-form-label">Email :</label><br>
@@ -25,8 +25,8 @@
     </div>
   </div>
 
-<div id="index.php?action=adminLogin">
-  <button type="submit" class="btn btn-primary">Connexion</button>
+  <div id="index.php?action=adminLogin">
+    <button type="submit" class="btn btn-primary">Connexion</button>
   </div>
 
 </form>
