@@ -40,7 +40,7 @@
             <?php if (isset($_SESSION['pseudo'])): ?>
             <a class="nav-link" href="index.php?action=adminLogout"><i class="fas fa-sign-out-alt"></i>Déconnexion</a>
             <?php else: ?>
-            <a class="nav-link" href="index.php?action=adminLogin"><i class="fas fa-sign-in-alt"></i>Connexion</a>
+            <a class="nav-link" href="#index.php?action=adminLogin"><i class="fas fa-sign-in-alt"></i>Connexion</a>
             <?php endif; ?>
           </li>
         </ul>
