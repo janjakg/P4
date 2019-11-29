@@ -1,10 +1,11 @@
-
 <?php $title = "Inscription"; ?>
 
 <?php ob_start(); ?>
 
-<div class="shadow-none m-5 pb-5 bg-light"><h1 class="text-center">INSCRIPTION</h1></div>
-<p class="text-center"><a href="index.php?action=adminLogin" >Si vous êtes déja inscrit connectez vous</a></p>
+<div class="shadow-none m-5 pb-5 bg-light">
+  <h1 class="text-center">INSCRIPTION</h1>
+</div>
+<p class="text-center"><a href="index.php?action=adminLogin">Si vous êtes déja inscrit connectez vous</a></p>
 
 <form action="index.php?action=checkRegistration" method="post">
   <p>
@@ -42,7 +43,7 @@
         </div>
       </div>
 
-      <button type="submit" class="btn btn-primary" >Valider</button>
+      <button type="submit" class="btn btn-primary">Valider</button>
     </fieldset>
   </p>
 </form>
