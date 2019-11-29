@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title><?= $title ?></title>
   <link href="public/css/style.css" rel="stylesheet" />
-  <link rel="stylesheet" media="screen and (max-width:768px)" href="public/css/petite résolution.css">
+  <link rel="stylesheet" media="screen and (max-width:768px)" href="#">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/fa6a9c271b.js" crossorigin="anonymous"></script>
