@@ -12,12 +12,14 @@ function about()
 {
   require('view/frontend/about.php');
 }
+
 function listPosts()
 {
     $postManager = new PostManager();
     $posts = $postManager->getPosts();
     require('view/frontend/listPostsView.php');
 }
+
 function post()
 {
     $postManager = new PostManager();
@@ -26,6 +28,7 @@ function post()
     $comments = $commentManager->getComments($_GET['id']);
     require('view/frontend/postView.php');
 }
+
 function addComment($postId, $author, $comment)
 {
     $commentManager = new CommentManager();
@@ -33,12 +36,12 @@ function addComment($postId, $author, $comment)
 
     if ($affectedLines === false) {
        throw new Exception('Impossible d\'ajouter le commentaire !');
-
     }
     else {
         header('Location: index.php?action=post&id=' . $postId);
     }
 }
+
 function signalledComment($commentId)
 {
     $commentManager = new CommentManager();
