@@ -10,6 +10,7 @@ class CommentManager extends Manager
       $comments = $req->fetchAll();
       return $comments;
   }
+
   public function postComment($postId, $author, $comment)
   {
       $db =$this->dbConnect();
@@ -35,17 +36,17 @@ class CommentManager extends Manager
 
   public function deleteComment($idComment)
   {
-    $db = $this->dbConnect();
-    $req = $db->prepare('DELETE FROM comments WHERE comments.id = ?');
-    $destroyComment = $req->execute([$idComment]);
-    return $destroyComment;
+      $db = $this->dbConnect();
+      $req = $db->prepare('DELETE FROM comments WHERE comments.id = ?');
+      $destroyComment = $req->execute([$idComment]);
+      return $destroyComment;
   }
   
   public function retainComment($commentId)
   {
-    $db = $this->dbConnect();
-    $req = $db->prepare('UPDATE comments SET signalled = 0 WHERE comments.id = ?');
-    $updateSignaledComment = $req->execute([$commentId]);
-    return $updateSignaledComment;
+      $db = $this->dbConnect();
+      $req = $db->prepare('UPDATE comments SET signalled = 0 WHERE comments.id = ?');
+      $updateSignaledComment = $req->execute([$commentId]);
+      return $updateSignaledComment;
   }
- }
+}
