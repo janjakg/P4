@@ -47,8 +47,8 @@
             <?php while ($list = $posts->fetch()): ?>
             <tr>
               <td><strong><?= (stripslashes(strip_tags($list['title']))) ?></strong></td>
-              <td><?= (substr($list['content'],0,90)) ?>...</td>
-              <td><a class="btn btn-secondary" href="index.php?action=readPost&amp;postId=<?= ($list['id']) ?>">Read</a>
+              <td><?= stripslashes(strip_tags((substr($list['content'],0,90)))) ?>...</td>
+              <td><a class="btn btn-secondary" href="index.php?action=readPost&amp;postId=<?=($list['id']) ?>">Read</a>
               </td>
               <td><a class="btn btn-info" href="index.php?action=editPost&amp;idPost=<?= ($list['id']) ?>">Update</a>
               </td>
