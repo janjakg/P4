@@ -23,29 +23,31 @@
       <?php else :?>
       <p> </p>
       <?php endif;?>
+      <div class="accueil">
+        <a class="navbar-brand" href="index.php"><strong><em>Jean FORTEROCHE</em></strong></a>
+        <a class="navbar-brand" href="index.php"><i class="fas fa-home"></i>Accueil</a>
 
-      <a class="navbar-brand" href="index.php"><strong><em>Jean FORTEROCHE</em></strong></a>
-      <a class="navbar-brand" href="index.php"><i class="fas fa-home"></i>Accueil</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>-->
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-          <!-- <li class="nav-item">     
+       
+          <ul class="navbar-nav ml-auto">
+            <!-- <li class="nav-item">     
       <a class="nav-link" href="index.php?action=adminLogin">Login</a>
       </li> -->
-          <li class="nav-item">
-            <?php if (isset($_SESSION['pseudo'])): ?>
-            <a class="nav-link" href="index.php?action=adminLogout"><i class="fas fa-sign-out-alt"></i>Déconnexion</a>
-            <?php else: ?>
-            <a class="nav-link" href="#index.php?action=adminLogin"><i class="fas fa-sign-in-alt"></i>Connexion</a>
-            <?php endif; ?>
-          </li>
-        </ul>
+            <li class="nav-item ml-auto">
+              <?php if (isset($_SESSION['pseudo'])): ?>
+              <a class="nav-link" href="index.php?action=adminLogout"><i class="fas fa-sign-out-alt"></i>Déconnexion</a>
+              <?php else: ?>
+              <a class="nav-link" href="#index.php?action=adminLogin"><i class="fas fa-sign-in-alt"></i>Connexion</a>
+              <?php endif; ?>
+            </li>
+          </ul>      
       </div>
     </nav>
+
   </div>
   <div class="container">
     <div class="text-center">
