@@ -14,6 +14,7 @@
 </head>
 
 <body class="background">
+  <!--Création de navbar sans bootstrap -->
   <nav>
     <div class="header">
       <?php if (isset($_SESSION['pseudo'])) :?>
