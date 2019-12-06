@@ -14,51 +14,46 @@
 </head>
 
 <body class="background">
-
-  <div class="sticky-top">
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-
+  <nav>
+    <div class="header">
       <?php if (isset($_SESSION['pseudo'])) :?>
       <span class="badge badge-pill badge-success">connecté </span>
       <?php else :?>
       <p> </p>
       <?php endif;?>
-      <div class="accueil">
-        <a class="navbar-brand" href="index.php"><strong><em>Jean FORTEROCHE</em></strong></a>
-        <a class="navbar-brand" href="index.php"><i class="fas fa-home"></i>Accueil</a>
 
-      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>-->
+      <a class="logo" href="index.php"><strong><em>Jean FORTEROCHE</em></strong></a>
 
-       
-          <ul class="navbar-nav ml-auto">
-            <!-- <li class="nav-item">     
-      <a class="nav-link" href="index.php?action=adminLogin">Login</a>
-      </li> -->
-            <li class="nav-item ml-auto">
-              <?php if (isset($_SESSION['pseudo'])): ?>
-              <a class="nav-link" href="index.php?action=adminLogout"><i class="fas fa-sign-out-alt"></i>Déconnexion</a>
-              <?php else: ?>
-              <a class="nav-link" href="#index.php?action=adminLogin"><i class="fas fa-sign-in-alt"></i>Connexion</a>
-              <?php endif; ?>
-            </li>
-          </ul>      
-      </div>
-    </nav>
+      <input type="checkbox" id="chk">
+      <label for="chk" class="show-menu-btn">
+        <i class="fas fa-ellipsis-h"></i>
+      </label>
 
-  </div>
+      <ul class="menu">
+        <a href="index.php"><i class="fas fa-home"></i>Accueil</a>
+        <a href="index.php?action=listPosts"><i class="fab fa-blogger"></i>blog</a>
+        <?php if (isset($_SESSION['pseudo'])): ?>
+        <a href="index.php?action=adminLogout"><i class="fas fa-sign-out-alt"></i>Déconnexion</a>
+        <?php else: ?>
+        <a href="#index.php?action=adminLogin"><i class="fas fa-sign-in-alt"></i>Connexion</a>
+        <?php endif; ?>
+        <label for="chk" class="hide-menu-btn">
+          <i class="fas fa-times"></i>
+        </label>
+      </ul>
+    </div>
+  </nav>
+
   <div class="container">
     <div class="text-center">
       <img src="public/images/town" class="img-fluid" alt="Responsive image"></div>
-
     <?= $content ?>
   </div>
+
   <footer>
     Site réalisé par Jean-Jacques dans le cadre de la formation OpenClassrooms. 2019
   </footer>
-  <script src="public/js/signal.js"></script>
+
 </body>
 
 </html>
