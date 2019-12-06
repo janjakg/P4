@@ -13,11 +13,13 @@
   <form action="index.php?action=updatePost&idPost=<?=$post['id'] ?>" method="post">
     <div class="form-group">
       <label for="title">Titre</label>
-      <input type="text" class="form-control" name="title" id="title" value="<?=$post['title'] ?>">
+      <input type="text" class="form-control" name="title" id="title"
+        value="<?= stripslashes(strip_tags($post['title'])) ?>">
     </div>
     <div class="form-group">
       <label for="content">Contenu</label>
-      <textarea name="content" id="content" cols="30" rows="10"><?=$post['content'] ?></textarea>
+      <textarea name="content" id="content" cols="30"
+        rows="10"><?= stripslashes(strip_tags($post['content']))  ?></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Modifier</button>
   </form>
