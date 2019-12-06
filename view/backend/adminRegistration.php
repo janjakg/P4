@@ -1,5 +1,5 @@
 <?php $title = "Inscription"; ?>
-
+<!-- formulaire d'inscription qui nous sert a enregistrer le mot de passe haché de l'utilisateur principal de la partie admin. Il pourra être remis en place en fonction des besoins -->
 <?php ob_start(); ?>
 
 <div class="shadow-none m-5 pb-5 bg-light">
