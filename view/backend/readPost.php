@@ -18,7 +18,7 @@
     </p>
 
     <p>
-      <?= ($displayPost['content']) ?>
+      <?= strip_tags(stripslashes(($displayPost['content'])))?>
       <br />
     </p>
 
