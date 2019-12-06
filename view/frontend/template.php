@@ -26,7 +26,7 @@
       <?php endif;?>
 
       <a class="navbar-brand" href="index.php"><strong><em>Jean FORTEROCHE</em></strong></a>
-      <a class="navbar-brand" href="index.php"><i class="fas fa-home"></i> Accueil</a>
+    
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -39,10 +39,13 @@
             <a class="nav-link" href="index.php?action=adminRegistration"></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.php?action=about"> A propos</a>
+            <a class="nav-link" href="index.php"><i class="fas fa-home"></i> Accueil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.php?action=listPosts">Blog</a>
+            <a class="nav-link" href="index.php?action=about"><i class="fas fa-info-circle"></i> A propos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?action=listPosts"><i class="fab fa-blogger"></i> Blog</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="index.php?action=adminLogin"><i class="fas fa-user-lock"></i> Admin</a>
