@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-
+<!-- template crée pour la partie frontend -->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,7 +18,7 @@
 
   <div class="sticky-top">
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-
+<!--script php pour indiquer à l'utilisateur par une pilule verte qu'i est connecté -->
       <?php if (isset($_SESSION['pseudo'])) :?>
       <span class="badge badge-pill badge-success">connecté </span>
       <?php else :?>
@@ -26,7 +26,7 @@
       <?php endif;?>
 
       <a class="navbar-brand" href="index.php"><strong><em>Jean FORTEROCHE</em></strong></a>
-    
+
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -67,7 +67,6 @@
     </div>
   </footer>
 
-  <script src="public/js/signal.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
   </script>
