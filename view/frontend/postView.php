@@ -7,7 +7,7 @@
     <h1 class="text-center">Billet simple pour l'Alaska</h1>
   </div>
 </div>
-
+<!--Liste des posts -->
 <section class="news">
 
   <div class="shadow-lg p-3 mb-5 bg-white rounded">
@@ -37,6 +37,7 @@
     </div>
   </form>
 </section>
+<!--lancement d'une condition avec une boucle pour récupérer les commentaires -->
 <?php if ($comments): ?>
 <div class="shadow-lg p-3 mb-5 bg-azure rounded">
   <div class="comments">
