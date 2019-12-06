@@ -6,14 +6,15 @@ try
 {
     if (isset($_GET['action'])) {
         switch ($_GET['action'])  {
+//accès à la page d'accueil
             case 'homepage':
               homepage();
               break;
-
+//accès au blog
             case 'listPosts':
               listPosts();
               break;  
-              
+ //accès à la page à propos             
             case'about':
               about();
               break;
@@ -87,8 +88,7 @@ try
             case 'erasePost' :
                 if(isset($_GET['idPost']) && isset($_GET['idComment']) && $_GET['idPost'] > 0) {
                   erasePost($_GET['idPost'], $_GET['idComment']); 
-                 // eraseComment( $_GET['idComment']);
-
+                 
                 } else {
                   throw new Exception('aucun identifiant de post supprimé');
                 }
@@ -104,8 +104,7 @@ try
 
             case 'createPost' : 
               //Nous accédons à la page de création de post                  
-                  createPost();
-                                                   
+                  createPost();                                                   
                 break;
 
             case 'sendPost' :
@@ -156,8 +155,7 @@ try
                 $_SESSION = array();
                 session_destroy();
                 echo'session terminée';                 
-                header('Location: index.php?action=adminLogin');  
-                             
+                header('Location: index.php?action=adminLogin');                             
                
               }  else {
                 throw new exception('logout non fonctionnel');
