@@ -27,7 +27,7 @@
 
       <input type="checkbox" id="chk">
       <label for="chk" class="show-menu-btn">
-        <i class="fas fa-ellipsis-h"></i>
+        <i class="fas fa-bars"></i>
       </label>
 
       <ul class="menu">
