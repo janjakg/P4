@@ -13,7 +13,7 @@
 
   <section class="shadow-lg p-3 mb-5 bg-white rounded">
     <p>
-      <strong><?= (strtoupper($displayPost['title'])) ?></strong>
+      <strong><?= strip_tags(stripslashes(strtoupper($displayPost['title']))) ?></strong>
       <br />
     </p>
 
